@@ -13,14 +13,6 @@ header {
     padding: 150px 20px;
 }
 
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
 
 .feature {
     display: inline-block;
@@ -34,4 +26,37 @@ a {
 }
 a:hover {
     color: #e67e22; /* オレンジ系のホバー時の色 */
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out;
+}
+.visible .fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #3498db;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+.button:hover {
+    background: #2980b9;
+}
+
+.typing {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3s steps(40, end) forwards;
+}
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
 }
