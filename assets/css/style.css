@@ -19,14 +19,6 @@ header {
     margin: 10px;
 }
 
-a {
-    color: #f1c40f; /* ゴールド系の色 */
-    text-decoration: none; /* 下線を消す */
-}
-a:hover {
-    color: #e67e22; /* オレンジ系のホバー時の色 */
-}
-
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -84,19 +76,46 @@ header {
     background-size: cover;
 }
 
-.hero {
-    background: rgba(0, 0, 0, 0.6); /* 透明感のある黒背景 */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
 }
 
-.hero h1, .hero p {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease-in-out;
+.timeline ul {
+    list-style: none;
+    padding: 0;
 }
 
-.hero.visible h1, .hero.visible p {
-    opacity: 1;
-    transform: translateY(0);
+.timeline ul li {
+    position: relative;
+    padding: 15px 25px;
+    margin-bottom: 20px;
+    background: #2c3e50;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.timeline ul li:hover {
+    transform: scale(1.02);
+    background: #34495e;
+}
+
+.timeline ul li::before {
+    content: "●";
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #f39c12; /* ゴールドカラー */
+    font-size: 16px;
+}
+
+.timeline ul li:last-child {
+    margin-bottom: 0;
 }
 
 .cta {
