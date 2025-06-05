@@ -60,3 +60,77 @@ a:hover {
     from { width: 0; }
     to { width: 100%; }
 }
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 0;
+    transition: background 0.3s ease-in-out;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #f39c12; /* オレンジ系でアクセント */
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: url('/aws-cloud/images/header-bg.png') no-repeat center center;
+    background-size: cover;
+}
+
+.hero h1, .hero p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out;
+}
+
+.hero.visible h1, .hero.visible p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cta {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #3498db;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.cta:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+}
+
+.skills {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 20px;
+}
+
+.skills p {
+    background: #2c3e50;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.skills p:hover {
+    background: #34495e;
+}
+
