@@ -13,7 +13,6 @@ header {
     padding: 150px 20px;
 }
 
-
 .feature {
     display: inline-block;
     width: 45%;
@@ -80,11 +79,13 @@ nav ul li a:hover {
     color: #f39c12; /* オレンジ系でアクセント */
 }
 
-.hero {
-    text-align: center;
-    padding: 100px 20px;
+header {
     background: url('/aws-cloud/images/header-bg.png') no-repeat center center;
     background-size: cover;
+}
+
+.hero {
+    background: rgba(0, 0, 0, 0.6); /* 透明感のある黒背景 */
 }
 
 .hero h1, .hero p {
