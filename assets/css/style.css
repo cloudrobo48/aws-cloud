@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background: url('/aws-cloud/images/header-bg.png') no-repeat center center;
+    background: url('/images/header-bg.png') no-repeat center center;
     background-size: cover;
     color: white;
     padding: 150px 20px;
@@ -72,7 +72,7 @@ nav ul li a:hover {
 }
 
 header {
-    background: url('/aws-cloud/images/header-bg.png') no-repeat center center;
+    background: url('/images/header-bg.png') no-repeat center center;
     background-size: cover;
 }
 
