@@ -37,8 +37,6 @@ header {
     border-radius: 5px;
     text-decoration: none;
     transition: background 0.3s ease-in-out;
-    border-radius: 5px;
-    cursor: pointer;
 }
 .button:hover {
     background: #2980b9;
@@ -178,4 +176,28 @@ input, textarea {
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+.button, button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease-in-out;
+}
+.button:hover, button:hover {
+    background: linear-gradient(135deg, #2980b9, #1f6fb2);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+form {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
