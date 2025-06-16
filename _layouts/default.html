@@ -12,20 +12,26 @@
 </head>
 <body>
 
-    <header>
-        <div class="header-container">
-            <h1>{{ site.title }}</h1>
-            <p class="subtitle">{{ site.description }}</p>
+    <div class="container">
+        {% include sidebar.html %} <!-- サイドバーを追加 -->
+
+        <div class="content">
+            <header>
+                <div class="header-container">
+                    <h1>{{ site.title }}</h1>
+                    <p class="subtitle">{{ site.description }}</p>
+                </div>
+            </header>
+
+            <main>
+                {{ content }}
+            </main>
+
+            <footer>
+                <p>&copy; 2025 クラウドインフラエンジニア | <a href="/about">会社概要</a></p>
+            </footer>
         </div>
-    </header>
-
-    <main>
-        {{ content }}
-    </main>
-
-    <footer>
-        <p>&copy; 2025 クラウドインフラエンジニア | <a href="/about">会社概要</a></p>
-    </footer>
+    </div>
 
 </body>
 </html>
