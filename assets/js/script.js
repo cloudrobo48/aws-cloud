@@ -52,20 +52,28 @@ document.getElementById("submitButton").addEventListener("click", async (event) 
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const headings = document.querySelectorAll("h1, h2"); // h1 と h2 のみ取得
+    console.log("スクリプト開始"); // デバッグ用
+    const headings = document.querySelectorAll("h1, h2, h3");
     const nav = document.getElementById("sidebar-nav");
+
+    if (!nav) {
+        console.error("sidebar-nav が見つかりません！");
+        return;
+    }
 
     headings.forEach((heading) => {
         if (!heading.id) {
             heading.id = "section-" + heading.textContent.replace(/\s+/g, "-").toLowerCase();
         }
 
-        const listItem = document.createElement("li");
         const link = document.createElement("a");
         link.href = "#" + heading.id;
         link.textContent = heading.textContent;
 
+        const listItem = document.createElement("li");
         listItem.appendChild(link);
         nav.appendChild(listItem);
     });
+
+    console.log("メニュー生成完了");
 });
