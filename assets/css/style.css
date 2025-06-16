@@ -250,3 +250,26 @@ textarea {
     margin-left: 250px; /* サイドバーの幅分の余白を作る */
     padding: 20px;
 }
+
+#sidebar-nav {
+    list-style: none; /* デフォルトのマーカーを消す */
+    padding: 0;
+    display: block; /* 横並びを防ぐ */
+}
+
+#sidebar-nav li {
+    display: block; /* リスト項目を縦方向に並べる */
+    margin-bottom: 10px; /* 項目間の余白 */
+}
+
+#sidebar-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    display: block;
+    transition: 0.3s;
+}
+
+#sidebar-nav a:hover {
+    background: #34495e;
+}
