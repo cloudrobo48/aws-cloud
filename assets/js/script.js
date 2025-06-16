@@ -47,3 +47,33 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 2000);
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOMContentLoaded 発火！");
+    const headings = document.querySelectorAll("h1, h2, h3");
+    console.log("見出し取得:", headings);
+
+    const nav = document.getElementById("sidebar-nav");
+    console.log("sidebar-nav:", nav);
+
+    if (!nav) {
+        console.error("sidebar-nav が見つかりません！");
+        return;
+    }
+
+    headings.forEach((heading) => {
+        if (!heading.id) {
+            heading.id = "section-" + heading.textContent.replace(/\s+/g, "-").toLowerCase();
+        }
+
+        const link = document.createElement("a");
+        link.href = "#" + heading.id;
+        link.textContent = heading.textContent;
+
+        const listItem = document.createElement("li");
+        listItem.appendChild(link);
+        nav.appendChild(listItem);
+    });
+
+    console.log("メニュー生成完了");
+});
