@@ -2,8 +2,8 @@
 layout: default
 ---
 # AWS 技術メモ1
-# ✅Github pagesのお問い合わせフォーム
-## 🔹API Gateway -> Lambda -> SES -> メールで通知の仕組み
+# ✅Github pagesからのお問い合わせ
+## 🔹GitHub Pages → API Gateway → Lambda → SES → メールで通知の仕組み
 ### 前提・事前
 - 独自ドメイン取得
 - Route53のホストゾーンで表示されるNSレコードをドメインレジストラに登録
@@ -16,3 +16,4 @@ layout: default
 ### どうかな？
 #### どうでしょう？？？
 
+ 
