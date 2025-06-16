@@ -6,7 +6,7 @@ document.getElementById("submitButton").addEventListener("click", async (event) 
     const message = document.getElementById("message").value.trim();
     const responseMessage = document.getElementById("responseMessage");
     const button = document.getElementById("submitButton");
-
+    
     // バリデーションチェック
     if (!name || !email || !message) {
         responseMessage.style.display = "block";
@@ -20,7 +20,7 @@ document.getElementById("submitButton").addEventListener("click", async (event) 
     button.textContent = "送信中...";
 
     try {
-        const response = await fetch("https://your-api-gateway-url", {
+        const response = await fetch("https://your-real-api-url.com", { // 正しいエンドポイントを設定
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -38,6 +38,7 @@ document.getElementById("submitButton").addEventListener("click", async (event) 
             responseMessage.textContent = "送信に失敗しました。もう一度試してください。";
         }
     } catch (error) {
+        console.error("送信エラー:", error); // エラーの詳細情報をコンソールに出力
         responseMessage.style.display = "block";
         responseMessage.style.color = "red";
         responseMessage.textContent = "エラーが発生しました。ネットワークを確認してください。";
@@ -48,4 +49,23 @@ document.getElementById("submitButton").addEventListener("click", async (event) 
         button.disabled = false;
         button.textContent = "送信";
     }, 2000);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const headings = document.querySelectorAll("h1, h2"); // h1 と h2 のみ取得
+    const nav = document.getElementById("sidebar-nav");
+
+    headings.forEach((heading) => {
+        if (!heading.id) {
+            heading.id = "section-" + heading.textContent.replace(/\s+/g, "-").toLowerCase();
+        }
+
+        const listItem = document.createElement("li");
+        const link = document.createElement("a");
+        link.href = "#" + heading.id;
+        link.textContent = heading.textContent;
+
+        listItem.appendChild(link);
+        nav.appendChild(listItem);
+    });
 });
