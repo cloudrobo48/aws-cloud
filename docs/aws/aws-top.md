@@ -2,7 +2,6 @@
 layout: default
 ---
 # AWS 技術メモ1
-
 # Github pagesのお問い合わせフォームからAPI Gateway -> Lambda -> SES -> メールで通知の仕組み
 ## （前提・事前）
 - 独自ドメイン取得
@@ -15,5 +14,3 @@ layout: default
 - メールアドレスの検証：OK
 ### どうかな？
 #### どうでしょう？？？
-
-
