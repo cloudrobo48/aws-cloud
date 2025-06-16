@@ -5,24 +5,3 @@
     </ul>
 </nav>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const headings = document.querySelectorAll("h2, h3"); // # を h2, h3 に対応
-    const nav = document.getElementById("sidebar-nav");
-
-    headings.forEach((heading) => {
-        // IDを付与（なければ生成）
-        if (!heading.id) {
-            heading.id = "section-" + heading.textContent.replace(/\s+/g, "-").toLowerCase();
-        }
-
-        const link = document.createElement("a");
-        link.href = "#" + heading.id;
-        link.textContent = heading.textContent;
-
-        const listItem = document.createElement("li");
-        listItem.appendChild(link);
-        nav.appendChild(listItem);
-    });
-});
-</script>
