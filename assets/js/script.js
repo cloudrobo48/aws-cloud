@@ -1,6 +1,19 @@
-document.getElementById("submitButton").addEventListener("click", async () => {
-    const button = document.getElementById("submitButton");
+document.getElementById("submitButton").addEventListener("click", async (event) => {
+    event.preventDefault(); // デフォルトのフォーム送信を無効化
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
     const responseMessage = document.getElementById("responseMessage");
+    const button = document.getElementById("submitButton");
+
+    // バリデーションチェック
+    if (!name || !email || !message) {
+        responseMessage.style.display = "block";
+        responseMessage.style.color = "red";
+        responseMessage.textContent = "すべての項目を入力してください。";
+        return;
+    }
 
     // ボタンを無効化して「送信中...」と表示
     button.disabled = true;
@@ -12,7 +25,7 @@ document.getElementById("submitButton").addEventListener("click", async () => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ message: "お問い合わせ内容" })
+            body: JSON.stringify({ name, email, message })
         });
 
         if (response.ok) {
