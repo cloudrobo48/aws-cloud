@@ -7,24 +7,21 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-    <h1>お問い合わせ</h1>
     <form id="contactForm">
-    <fieldset>
-        <legend>お問い合わせ</legend>
+        <fieldset>
+            <legend>お問い合わせ</legend>
+            <label for="name">名前:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">メール:</label>
+            <input type="email" id="email" name="_replyto" required>
+            <label for="message">メッセージ:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button id="submitButton">送信</button>
+            <p id="responseMessage" style="display: none;"></p>
+        </fieldset>
+    </form>
 
-        <label for="name">名前:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">メール:</label>
-        <input type="email" id="email" name="_replyto" required>
-
-        <label for="message">メッセージ:</label>
-        <textarea id="message" name="message" required></textarea>
-
-        <button id="submitButton">送信</button>
-        <p id="responseMessage" style="display: none;"></p>
-    </fieldset>
-</form>
-
+    <!-- JavaScriptファイルを最後に読み込む -->
+    <script src="/assets/js/script.js"></script>
 </body>
 </html>
