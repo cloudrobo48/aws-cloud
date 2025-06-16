@@ -4,9 +4,8 @@
         <!-- JavaScriptで自動生成 -->
     </ul>
 </nav>
-
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("スクリプト開始"); // スクリプトが実行されているか確認
+window.onload = () => {
+    console.log("window.onload 発火！");
     const headings = document.querySelectorAll("h1, h2, h3");
     console.log("見出し取得:", headings);
 
@@ -33,4 +32,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     console.log("メニュー生成完了");
-});
+};
+
