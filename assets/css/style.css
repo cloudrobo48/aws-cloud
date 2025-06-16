@@ -203,3 +203,50 @@ input, textarea {
 textarea {
     height: 100px;
 }
+
+.container {
+    display: flex; /* 横並びレイアウト */
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto; /* スクロール可能にする */
+}
+
+.sidebar h2 {
+    margin-bottom: 15px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background: #34495e;
+}
+
+.content {
+    flex-grow: 1;
+    margin-left: 250px; /* サイドバーの幅分の余白を作る */
+    padding: 20px;
+}
