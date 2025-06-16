@@ -1,52 +1,49 @@
-document.getElementById("submitButton").addEventListener("click", async (event) => {
-    event.preventDefault(); // デフォルトのフォーム送信を無効化
-
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
-    const responseMessage = document.getElementById("responseMessage");
+document.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById("submitButton");
     
-    // バリデーションチェック
-    if (!name || !email || !message) {
-        responseMessage.style.display = "block";
-        responseMessage.style.color = "red";
-        responseMessage.textContent = "すべての項目を入力してください。";
+    if (!button) {
+        console.error("submitButton が見つかりません！");
         return;
     }
 
-    // ボタンを無効化して「送信中...」と表示
-    button.disabled = true;
-    button.textContent = "送信中...";
+    button.addEventListener("click", async (event) => {
+        event.preventDefault();
 
-    try {
-        const response = await fetch("https://your-real-api-url.com", { // 正しいエンドポイントを設定
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ name, email, message })
-        });
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+        const responseMessage = document.getElementById("responseMessage");
 
-        if (response.ok) {
-            responseMessage.style.display = "block";
-            responseMessage.style.color = "green";
-            responseMessage.textContent = "送信しました！";
-        } else {
+        if (!name || !email || !message) {
             responseMessage.style.display = "block";
             responseMessage.style.color = "red";
-            responseMessage.textContent = "送信に失敗しました。もう一度試してください。";
+            responseMessage.textContent = "すべての項目を入力してください。";
+            return;
         }
-    } catch (error) {
-        console.error("送信エラー:", error); // エラーの詳細情報をコンソールに出力
-        responseMessage.style.display = "block";
-        responseMessage.style.color = "red";
-        responseMessage.textContent = "エラーが発生しました。ネットワークを確認してください。";
-    }
 
-    // 2秒後にボタンを元に戻す
-    setTimeout(() => {
-        button.disabled = false;
-        button.textContent = "送信";
-    }, 2000);
+        button.disabled = true;
+        button.textContent = "送信中...";
+
+        try {
+            const response = await fetch("https://your-real-api-url.com", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, message })
+            });
+
+            responseMessage.style.display = "block";
+            responseMessage.style.color = response.ok ? "green" : "red";
+            responseMessage.textContent = response.ok ? "送信しました！" : "送信に失敗しました。";
+        } catch (error) {
+            console.error("送信エラー:", error);
+            responseMessage.style.display = "block";
+            responseMessage.style.color = "red";
+            responseMessage.textContent = "ネットワークエラーが発生しました。";
+        }
+
+        setTimeout(() => {
+            button.disabled = false;
+            button.textContent = "送信";
+        }, 2000);
+    });
 });
