@@ -1,17 +1,31 @@
-<!DOCTIYPE html>
-<html>
-  <head>
-  <title>{{ page.title }}</title>
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <meta name="description" content="{{ site.description }}">
+    <meta property="og:title" content="{{ site.title }}">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:image" content="/assets/images/og-image.png">
+</head>
+<body>
+
     <header>
-      <h1>{{ site.title }}</h1>
+        <div class="header-container">
+            <h1>{{ site.title }}</h1>
+            <p class="subtitle">{{ site.description }}</p>
+        </div>
     </header>
+
     <main>
-      {{ content }}
+        {{ content }}
     </main>
+
     <footer>
-      <p>&copy; 2025 自由なおじさん</p>
+        <p>&copy; 2025 クラウドインフラエンジニア | <a href="/about">会社概要</a></p>
     </footer>
-  </body>
+
+</body>
 </html>
