@@ -8,12 +8,15 @@
     <meta name="description" content="{{ site.description }}">
     <meta property="og:title" content="{{ site.title }}">
     <meta property="og:description" content="{{ site.description }}">
-    <meta property="og:image" content="/assets/images/og-image.png">
+    <meta property="og:image" content="{{ site.baseurl }}/assets/images/og-image.png"> <!-- 修正 -->
 </head>
 <body>
 
     <div class="container">
-        {% include sidebar.html %} <!-- サイドバーを追加 -->
+        
+        <aside class="sidebar"> 
+            {% include sidebar.html %} <!-- サイドバーを適切な場所に配置 -->
+        </aside>
 
         <div class="content">
             <header>
@@ -32,6 +35,8 @@
             </footer>
         </div>
     </div>
+
+    <script src="/assets/js/script.js"></script>
 
 </body>
 </html>
