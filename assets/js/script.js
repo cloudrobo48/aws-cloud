@@ -53,7 +53,7 @@ document.getElementById("submitButton").addEventListener("click", async (event) 
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("スクリプト開始"); // デバッグ用
-    const headings = document.querySelectorAll("h1, h2, h3");
+    const headings = document.querySelectorAll("h1, h2");
     const nav = document.getElementById("sidebar-nav");
 
     if (!nav) {
