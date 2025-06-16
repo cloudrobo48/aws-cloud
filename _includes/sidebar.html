@@ -4,12 +4,13 @@
         <!-- JavaScriptで自動生成 -->
     </ul>
 </nav>
-
-
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("スクリプト開始"); // デバッグ用
+    console.log("スクリプト開始"); // スクリプトが実行されているか確認
     const headings = document.querySelectorAll("h1, h2, h3");
+    console.log("見出し取得:", headings);
+
     const nav = document.getElementById("sidebar-nav");
+    console.log("sidebar-nav:", nav);
 
     if (!nav) {
         console.error("sidebar-nav が見つかりません！");
