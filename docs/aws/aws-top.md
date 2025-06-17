@@ -32,7 +32,7 @@ layout: default
   - 信頼ポリシー：Lambdaに対してsts:AssumeRole
 - Lambda関数作成
   - 関数名はスネークケース（小文字で_でつなぐ）
-  　　- Javaだとキャメルケース（例：sendEmailViaSES）
+    - Javaだとキャメルケース（例：sendEmailViaSES）
   - ランタイム:Python
 - Deploy & Test
   - Cloudwatch logsでデバッグ
