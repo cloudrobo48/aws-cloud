@@ -15,6 +15,7 @@ layout: default
 - メールアドレスの検証：OK
 ### Lambda作成
 - Policy作成（JSON）
+~~~
     {
         "Effect": "Allow",
         "Action": [
@@ -29,6 +30,7 @@ layout: default
         "Action": "ses:SendEmail",
         "Resource": "*"
     }
+~~~
 - Role作成
   - 信頼ポリシー：Lambdaに対してsts:AssumeRole
 - Lambda関数作成
@@ -37,9 +39,10 @@ layout: default
   - ランタイム:Python
 - Deploy & Test
   - Cloudwatch logsでデバッグ
+~~~
     logger.setLevel(logging.DEBUG)
     logger.debug("Lambdaのデバッグログ開始")
-
+~~~
 #### どうでしょう？？？
 
  
