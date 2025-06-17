@@ -208,14 +208,6 @@ textarea {
     display: flex; /* 横並びレイアウト */
 }
 
-
-
-
-
-
-
-
-
 .sidebar {
     width: 250px;
     height: 100vh;
@@ -286,4 +278,10 @@ textarea {
 
 #sidebar-nav a:hover {
     background: #34495e;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
 }
