@@ -16,20 +16,17 @@ layout: default
 ### Lambda作成
 - Policy作成（JSON）
 ~~~
-    {
-        "Effect": "Allow",
-        "Action": [
-            "logs:CreateLogGroup",
-            "logs:CreateLogStream",
-            "logs:PutLogEvents"
-        ],
-        "Resource": "*"
-    },
-    {
-        "Effect": "Allow",
-        "Action": "ses:SendEmail",
-        "Resource": "*"
-    }
+    "Effect": "Allow",
+    "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+    ],
+    "Resource": "*"
+
+    "Effect": "Allow",
+    "Action": "ses:SendEmail",
+    "Resource": "*"
 ~~~
 - Role作成
   - 信頼ポリシー：Lambdaに対してsts:AssumeRole
