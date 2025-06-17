@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-[← 前のページに戻る](index.html)
+[← 前のページに戻る](/index.html)
 # AWS 技術メモ1
 # ✅Github pagesからのお問い合わせ
 ## 🔹GitHub Pages → API Gateway → Lambda → SES → メールで通知の仕組み
