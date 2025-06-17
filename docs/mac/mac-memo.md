@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+[← 前のページに戻る](/index.html)
 # ✅MBA M1を使った環境構築（ツール準備）
 ## 🔹Homeblewのインストール
 - https://brew.sh/にアクセス
