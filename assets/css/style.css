@@ -284,4 +284,7 @@ textarea {
     .sidebar {
         display: none;
     }
+    .content {
+        margin-left: 0; /* スマホ時に余白を削除 */
+    }
 }
