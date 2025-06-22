@@ -280,11 +280,17 @@ textarea {
     background: #34495e;
 }
 
-/* Markdown本文だけを左寄せにする */
-.markdown-body {
-    margin: 0 auto;
+.markdown-page .content {
     text-align: left !important;
-    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.markdown-page p,
+.markdown-page h1,
+.markdown-page h2,
+.markdown-page h3 {
+    text-align: left !important;
 }
 
 @media (max-width: 768px) {
