@@ -280,6 +280,13 @@ textarea {
     background: #34495e;
 }
 
+/* Markdown本文だけを左寄せにする */
+.markdown-body {
+    margin: 0 auto;
+    text-align: left !important;
+    max-width: 100%;
+}
+
 @media (max-width: 768px) {
     .sidebar {
         display: none;
