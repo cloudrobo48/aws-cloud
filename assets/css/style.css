@@ -298,6 +298,21 @@ textarea {
         display: none;
     }
     .content {
-        margin-left: 0; /* スマホ時に余白を削除 */
+        margin-left: 0; /* 全体の余白をリセット */
+    }
+    .markdown-page .content {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
+
+/* PC表示用：Sidebarの分だけスペースを確保 */
+@media (min-width: 769px) {
+    .markdown-page .content {
+        margin-left: 260px; /* サイドバーの幅 */
+        margin-right: auto;
+        text-align: left;
+    }
+}
+
+
