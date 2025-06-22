@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             responseMessage.style.display = "block";
             responseMessage.style.color = response.ok ? "green" : "red";
-            responseMessage.textContent = response.ok ? "送信しました！" : "送信に失敗しました。";
+            responseMessage.textContent = response.ok ? "送信しました。ご連絡ありがとうございました。" : "送信に失敗しました。";
         } catch (error) {
             console.error("送信エラー:", error);
             responseMessage.style.display = "block";
