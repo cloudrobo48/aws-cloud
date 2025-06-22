@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         button.textContent = "送信中...";
 
         try {
-            const response = await fetch("https://your-real-api-url.com", {
+            const response = await fetch("https://devJourney.fieldwork48.com", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name, email, message })
