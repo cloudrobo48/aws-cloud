@@ -4,16 +4,19 @@ layout: default
 [← 前のページに戻る](/index.html)
 # AWS 技術メモ1
 # ✅Github pagesからのお問い合わせ
-## 🔹GitHub Pages → API Gateway → Lambda → SES → メールで通知の仕組み
+## 🔹GitHub Pages → API Gateway → Lambda → SES → メールで通知
 ### 前提・事前
 - 独自ドメイン取得
 - Route53のホストゾーンで表示されるNSレコードをドメインレジストラに登録
 - Route53にTXTとMXレコードを登録（Google Wokrspace）
+
 ### Github Pagesで問い合わせフォームの作成
 - API GatewayのURLはまだ決まっていないのでPending
+
 ### SES登録
 - Mailアドレスを登録してメールアドレスの有効確認を行う
 - メールアドレスの検証：OK
+
 ### Lambda作成
 - Policy作成（JSON）
 ~~~
@@ -44,9 +47,11 @@ layout: default
 #### どうでしょう？？？
 
 # ✅オンプレからのパケット送信確認
+
 ## オンプレ
 - PythonでRTPパケット生成してPublic IP宛に送信
-## AWS
+
+## EC2でのパケット確認
 - Public subnetにLinux2
 - Security Groupで全ての通信許可
 - コンソールでパケットキャプチャー
