@@ -50,5 +50,7 @@ layout: default
 - Public subnetにLinux2
 - Security Groupで全ての通信許可
 - コンソールでパケットキャプチャー
-  -- sudo tcpdump -i eth0 udp port 5004 -nn
+~~~
+    sudo tcpdump -i eth0 udp port 5004 -nn
+~~~
  
