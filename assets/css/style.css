@@ -356,6 +356,10 @@ textarea {
   font-weight: bold;
 }
 
+.hobby-highlight {
+  background: linear-gradient(135deg, #fffbe6, #fff);
+  border-left: 6px solid #f39c12;
+}
 
 @media (max-width: 768px) {
     .sidebar {
