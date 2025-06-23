@@ -43,4 +43,12 @@ layout: default
 ~~~
 #### どうでしょう？？？
 
+# ✅オンプレからのパケット送信確認
+## オンプレ
+- PythonでRTPパケット生成してPublic IP宛に送信
+## AWS
+- Public subnetにLinux2
+- Security Groupで全ての通信許可
+- コンソールでパケットキャプチャー
+  -- sudo tcpdump -i eth0 udp port 5004 -nn
  
