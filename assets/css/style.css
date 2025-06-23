@@ -293,6 +293,29 @@ textarea {
     text-align: left !important;
 }
 
+.fancy-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.fancy-list li {
+  background: #ffffff;
+  margin: 12px auto;
+  padding: 18px 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.fancy-list li:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+
 @media (max-width: 768px) {
     .sidebar {
         display: none;
