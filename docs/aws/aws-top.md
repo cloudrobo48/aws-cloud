@@ -2,24 +2,33 @@
 layout: default
 ---
 [← 前のページに戻る](/index.html)
+
 # AWS 技術メモ1
+
 # ✅Github pagesからのお問い合わせ
+
 ## 🔹GitHub Pages → API Gateway → Lambda → SES → メールで通知
+
 ### 前提・事前
+
 - 独自ドメイン取得
 - Route53のホストゾーンで表示されるNSレコードをドメインレジストラに登録
 - Route53にTXTとMXレコードを登録（Google Wokrspace）
 
 ### Github Pagesで問い合わせフォームの作成
+
 - API GatewayのURLはまだ決まっていないのでPending
 - HTTP APIを使用する（API Gatewayで登録するカスタムドメインのACM認証で関連あり）
   -- REST APIの場合はバージニアで証明書のリクエストが必要
   -- HTTP APIやWebSocket APIの場合は、API Gatewayを作るリージョンと同じリージョンでACMリクエスト
+
 ### SES登録
+
 - Mailアドレスを登録してメールアドレスの有効確認を行う
 - メールアドレスの検証：OK
 
 ### Lambda作成
+
 - Policy作成（JSON）
 ~~~
     "Effect": "Allow",
@@ -34,6 +43,7 @@ layout: default
     "Action": "ses:SendEmail",
     "Resource": "*"
 ~~~
+
 - Role作成
   - 信頼ポリシー：Lambdaに対してsts:AssumeRole
 - Lambda関数作成
@@ -46,7 +56,9 @@ layout: default
     logger.setLevel(logging.DEBUG)
     logger.debug("Lambdaのデバッグログ開始")
 ~~~
+
 #### API Gateway作成
+
 - HTTP APIを指定
 - 統合を追加で、作成したLambda関数と関連付け
 - ルート設定：$defaultでLambda関数と関連付け
@@ -74,16 +86,17 @@ layout: default
 - Route53にカスタムドメイン名をA NAMEで登録する
 
 #### ブラウザでDebug(Safari）
+
 - 開発 - Webインスペクタでログなど確認
-
-
 
 # ✅オンプレからのパケット送信確認
 
 ## オンプレ
+
 - PythonでRTPパケット生成してPublic IP宛に送信
 
 ## EC2でのパケット確認
+
 - Public subnetにLinux2
 - Security Groupで全ての通信許可
 - コンソールでパケットキャプチャー
