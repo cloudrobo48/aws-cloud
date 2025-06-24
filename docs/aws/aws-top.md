@@ -19,8 +19,8 @@ layout: default
 
 - API GatewayのURLはまだ決まっていないのでPending
 - HTTP APIを使用する（API Gatewayで登録するカスタムドメインのACM認証で関連あり）
-  -- REST APIの場合はバージニアで証明書のリクエストが必要
-  -- HTTP APIやWebSocket APIの場合は、API Gatewayを作るリージョンと同じリージョンでACMリクエスト
+  - REST APIの場合はバージニアで証明書のリクエストが必要
+  - HTTP APIやWebSocket APIの場合は、API Gatewayを作るリージョンと同じリージョンでACMリクエスト
 
 ### SES登録
 
@@ -64,13 +64,13 @@ layout: default
 - ルート設定：$defaultでLambda関数と関連付け
 - 認証はなしとした（⭐️課題）
 - カスタムドメインを作成
-  -- （事前作成しときます）
-  -- AP-northeast-1にてACMで証明書をリクエスト
-  -- ルートドメイン　＋　「*.ルートドメイン」の2つ
-  -- 作成後に表示される情報をRoute53に登録（CNAME）
-  -- ここで「保留中の検証」ではまる
-  -- AWS側でCNAME名のところにドメイン名を自動補完したため、存在しないドメイン名になってた
-  -- ACMで「Route53でレコード作成」ボタン押した方がいいかも
+  - （事前作成しときます）
+  - AP-northeast-1にてACMで証明書をリクエスト
+  - ルートドメイン　＋　「*.ルートドメイン」の2つ
+  - 作成後に表示される情報をRoute53に登録（CNAME）
+  - ここで「保留中の検証」ではまる
+  - AWS側でCNAME名のところにドメイン名を自動補完したため、存在しないドメイン名になってた
+  - ACMで「Route53でレコード作成」ボタン押した方がいいかも
 - CORS設定（HTTP API用の設定）
 
 {:.table-bordered}
@@ -82,7 +82,7 @@ layout: default
 | Access-Control-Allow-Header | content-type                    |                                           |
 
 - APIマッピング（カスタムドメイン使っている場合に必要。カスタムドメインを選択して設定する）
-  -- APIとステージ（$defalut）とPath（今回はnone）
+  - APIとステージ（$defalut）とPath（今回はnone）
 - Route53にカスタムドメイン名をA NAMEで登録する
 
 #### ブラウザでDebug(Safari）
