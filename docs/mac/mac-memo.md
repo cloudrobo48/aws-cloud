@@ -48,7 +48,26 @@ layout: default
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_ed25519
 ~~~
+- 作成したSSHキーの表示
+~~~
+    cat id_ed25519.pub
+~~~
+- Github Pageに作成したSSHキーを登録する
+  -- Github pageの右上のプロフィールアイコンをクリックして「Setting」を選択
+  -- SSH and GPG keysを選択
+  -- New SSH Key
+  -- key typeはAuthentication key
+- GitHub接続テスト
+~~~
+    ssh -T git@github.com
+~~~
+- Githubに登録されているデータをクライアントにCloneさせる
+~~~
+    ~/Gitを作成して移動した
+    
+~~~
 
+  -- keyの部分に作成したSSHキーを貼り付ける
 
 ## 🔹Safariのデバッグ
 
