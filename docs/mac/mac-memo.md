@@ -53,10 +53,11 @@ layout: default
     cat id_ed25519.pub
 ~~~
 - Github Pageに作成したSSHキーを登録する
-  -- Github pageの右上のプロフィールアイコンをクリックして「Setting」を選択
-  -- SSH and GPG keysを選択
-  -- New SSH Key
-  -- key typeはAuthentication key
+-- Github pageの右上のプロフィールアイコンをクリックして「Setting」を選択
+-- SSH and GPG keysを選択
+-- New SSH Key
+-- key typeはAuthentication key
+-- keyの部分に作成したSSHキーを貼り付ける
 - GitHub接続テスト
 ~~~
     ssh -T git@github.com
@@ -67,7 +68,6 @@ layout: default
     
 ~~~
 
-  -- keyの部分に作成したSSHキーを貼り付ける
 
 ## 🔹Safariのデバッグ
 
