@@ -19,6 +19,7 @@ layout: default
 ~~~
     brew --version
 ~~~
+
 ## 🔹Git
 
 ### brewでインストール
