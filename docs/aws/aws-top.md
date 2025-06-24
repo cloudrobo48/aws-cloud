@@ -116,6 +116,7 @@ layout: default
 |(ACMで証明書リクエスト時のCNAME名)|CNAME|(ACMで証明書リクエスト時のCNAME値)|API Gatewayで指定するカスタムドメインのためにACMでリクエストが必要※1|
 |(独自サブドメイン名)|CNAME|Github PageのリポジトリURL|Github PageでSettings - Pages - Custom Domain登録した場合に設定|
 |(API Gatewayの独自サブドメイン名)|A|API Gatewayドメイン名|API Gateway作ったら指定必要|
+
 - ※1 ACMで生成されたCNAMEをRoute53に登録する時、ドメイン部分が自動保管されることあるので注意
 ~~~
     xxxx.domeinmme.com.domainname.com みたいになることがある
