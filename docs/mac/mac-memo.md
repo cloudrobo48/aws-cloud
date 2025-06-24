@@ -21,7 +21,8 @@ layout: default
 ~~~
 ## 🔹Git
 
-- brewでインストール
+### brewでインストール
+
 ~~~~
     brew install git
 ~~~~
@@ -33,41 +34,56 @@ layout: default
 - Finderで[command]+[shift]+[.]で非表示のファイルが表示される
 - [.zshrc]ダブルクリックして「export PATH=/usr/local/bin/git:$PATH」を貼り付けて保存
 - ターミナルで[source ~/.zshrc]と[git --version]でバージョンに「(Apple Git-154)」なくなってればＯＫ
-- GitHubの情報登録
+
+### GitHubの情報登録
+
 ~~~
    git config --global user.name "(githubのユーザー名)"
    git config --global user.email "(githubに登録したメールアドレス)"
 ~~~
-- GitHub接続のSSHキー作成
+
+### GitHub接続のSSHキー作成
+
 ~~~
     ssh-keygen -t ed25519 -C "GitHubに登録しているメールアドレス"
     -fで、SSHキーにファイル名をつけれる
 ~~~
-- SSHエージェントを起動して鍵を追加する
+
+### SSHエージェントを起動して鍵を追加する
+
 ~~~
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_ed25519
 ~~~
-- 作成したSSHキーの表示
+
+### 作成したSSHキーの表示
+
 ~~~
     cat id_ed25519.pub
 ~~~
-- Github Pageに作成したSSHキーを登録する
--- Github pageの右上のプロフィールアイコンをクリックして「Setting」を選択
--- SSH and GPG keysを選択
--- New SSH Key
--- key typeはAuthentication key
--- keyの部分に作成したSSHキーを貼り付ける
-- GitHub接続テスト
+
+### Github Pageに作成したSSHキーを登録する
+
+- Github pageの右上のプロフィールアイコンをクリックして「Setting」を選択
+- SSH and GPG keysを選択
+- New SSH Key
+- key typeはAuthentication key
+- keyの部分に作成したSSHキーを貼り付ける
+
+### GitHub接続テスト
+
 ~~~
     ssh -T git@github.com
 ~~~
-- Githubに登録されているデータをクライアントにCloneさせる
+
+### Githubに登録されているデータをクライアントにCloneさせる
+
 ~~~
     ~/Gitを作成して移動した
     git clone (Github page - code - 緑のCodeボタンクリック - SSHのタブに表示される情報)
 ~~~
-- つづく
+
+### つづく
 
 ## 🔹Safariのデバッグ
 
