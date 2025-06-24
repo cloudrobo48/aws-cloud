@@ -59,14 +59,14 @@ layout: default
     sudo tcpdump -i eth0 udp port 5004 -nn
 ~~~
  
-# ✅Route53のわかっていることまとめ
+# ✅Route53で￥変更した項目のまとめ
 |record name|type|value|note|
 |-----------------|-------|---------------------|----------------------------------------------|
-|独自ドメイン名|NS||ホストゾーン作成時に生成　4つ生成される 4つ全てをドメインレジストラの設定画面に登録|
-|独自ドメイン名|SOA||ホストゾーン作成時に生成|
-|独自ドメイン名|TXT|"google-site-verification=,,,（略）|Google Workspaceに独自ドメイン登録した場合に設定|
-|独自ドメイン名|MX|1 smtp.google.com.|Google Workspaceに独自ドメイン登録した場合に設定 メール送受信で使用|
-|||||
+|(独自ドメイン名)|NS||ホストゾーン作成時に生成　4つ生成される 4つ全てをドメインレジストラの設定画面に登録|
+|(独自ドメイン名)|SOA||ホストゾーン作成時に生成|
+|(独自ドメイン名)|TXT|"google-site-verification=,,,（略）|Google Workspaceに独自ドメイン登録した場合に設定|
+|(独自ドメイン名)|MX|1 smtp.google.com.|Google Workspaceに独自ドメイン登録した場合に設定 メール送受信で使用|
+|(ACMで証明書リクエスト時のCNAME名)|CNAME|(ACMで証明書リクエスト時のCNAME値)|API Gatewayで指定するカスタムドメインのためにACMでリクエストが必要|
 |||||
 |||||
 |||||
