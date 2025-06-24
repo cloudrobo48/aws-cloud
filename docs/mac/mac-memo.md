@@ -65,9 +65,9 @@ layout: default
 - Githubに登録されているデータをクライアントにCloneさせる
 ~~~
     ~/Gitを作成して移動した
-    
+    git clone (Github page - code - 緑のCodeボタンクリック - SSHのタブに表示される情報)
 ~~~
-
+- つづく
 
 ## 🔹Safariのデバッグ
 
