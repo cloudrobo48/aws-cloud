@@ -68,8 +68,12 @@ layout: default
 |(独自ドメイン名)|SOA| |ホストゾーン作成時に生成|
 |(独自ドメイン名)|TXT|"google-site-verification=,,,（略）"|Google Workspaceに独自ドメイン登録した場合に設定|
 |(独自ドメイン名)|MX|1 smtp.google.com.|Google Workspaceに独自ドメイン登録した場合に設定 メール送受信で使用|
-|(ACMで証明書リクエスト時のCNAME名)|CNAME|(ACMで証明書リクエスト時のCNAME値)|API Gatewayで指定するカスタムドメインのためにACMでリクエストが必要|
+|(ACMで証明書リクエスト時のCNAME名)|CNAME|(ACMで証明書リクエスト時のCNAME値)|API Gatewayで指定するカスタムドメインのためにACMでリクエストが必要※1|
 | | | | |
+- ※1 ACMで生成されたCNAMEをRoute53に登録される時、ドメイン部分が自動保管されることあるので注意
+~~~
+    xxxx.domeinmme.com.domainname.com みたいになることがある
+~~~
 
 
 
