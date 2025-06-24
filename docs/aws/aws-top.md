@@ -62,12 +62,13 @@ layout: default
 - CORS設定（HTTP API用の設定）
 
 {:.table-bordered}
-|項目|値|備考|
-|----------------------------------|--------------------------------------|-------------------------------------|
-|Access-Control-Allow-Origin|https://xxxx どこからのリクエスト化。Github Pagesをカスタムドメイン登録したので、そのURL ||
-|Access-Control-Allow-Methods|POST, OPTION|fetch()使ってるならOPTION必要|
-|Access-Control-Max-Age|3600||
-|Access-Control-Allow-Header|content-type||
+| 項目                        | 値                             | 備考                                    |
+|-----------------------------|----------------------------------|-----------------------------------------|
+| Access-Control-Allow-Origin | https://example.com             | GitHub Pagesのカスタムドメイン名を指定     |
+| Access-Control-Allow-Methods| POST, OPTION                    | fetch() を使う場合は OPTION も必要        |
+| Access-Control-Max-Age      | 3600                            |                                           |
+| Access-Control-Allow-Header | content-type                    |                                           |
+
 - APIマッピング（カスタムドメイン使っている場合に必要。カスタムドメインを選択して設定する）
   -- APIとステージ（$defalut）とPath（今回はnone）
 - Route53にカスタムドメイン名をA NAMEで登録する
