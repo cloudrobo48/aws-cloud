@@ -60,9 +60,11 @@ layout: default
   -- AWS側でCNAME名のところにドメイン名を自動補完したため、存在しないドメイン名になってた
   -- ACMで「Route53でレコード作成」ボタン押した方がいいかも
 - CORS設定（HTTP API用の設定）
+
+{:.table-bordered}
 |項目|値|備考|
 |----------------------------------|--------------------------------------|-------------------------------------|
-|Access-Control-Allow-Origin|https://xxxx（どこからのリクエスト化。Github Pagesをカスタムドメイン登録したので、そのURL）||
+|Access-Control-Allow-Origin|https://xxxx どこからのリクエスト化。Github Pagesをカスタムドメイン登録したので、そのURL ||
 |Access-Control-Allow-Methods|POST, OPTION|fetch()使ってるならOPTION必要|
 |Access-Control-Max-Age|3600||
 |Access-Control-Allow-Header|content-type||
