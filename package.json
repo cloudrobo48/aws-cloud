@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .js,.jsx",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "lint:md": "markdownlint-cli2 '**/*.md' '#node_modules' '#dist' '#coverage'"
   },
   "repository": {
     "type": "git",
