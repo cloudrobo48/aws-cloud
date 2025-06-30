@@ -168,18 +168,41 @@ layout: default
 
 ## Lint導入
 
-### Node+npmインストール　　→　ESLintとPretterインストール
+### Node+npmインストール　　→　ESLintとPretterとmarkdownlintのインストール
 
 ```
     brew install node
     npm init -y
     npm install -D eslint prettier
+    npm install --save-dev markdownlint-cli2
 ```
 
-### ESLintインストール
+### 除外path設定
+
+- 以下のファイルへの整形処理が不要なので除外設定しておく
+  - .estintignore
+  - .prettierignore
+  - .markdownlintignore
 
 ```
+    .estintignore, .prettierignore
+        node_modules/
+        dist/
+        coverage/
+    .markdownlintignore
+        node_modules/
+        dist/
+        docs/generated/
+        CHANGELOG.md
+```
 
+### formatの整形
+
+- 以下のコマンドでフォーマット整形してくれるので、早めに実行しとく
+
+```
+    npm run lint
+    npm run format
 ```
 
 ### つづく
