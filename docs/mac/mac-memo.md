@@ -84,6 +84,46 @@ layout: default
     git clone (Github page - code - 緑のCodeボタンクリック - SSHのタブに表示される情報)
 ~~~
 
+### Git -> Macへの更新
+
+~~~
+   cd (GitHubのリポジトリ)
+   git pull origin main 
+~~~
+
+### Git -> Macへの強制同期（ローカルの変更は破棄される）
+
+~~~
+    git fetch origin
+    git reset --hard origin/main
+~~~
+
+### Macの変更をステージング
+
+~~~
+    git add （ファイル名） または
+    git add .
+~~~
+
+### Macの変更をコミット
+
+~~~
+    git commit -m "変更内容の説明メッセージ"
+~~~
+
+### Macの変更をリモート送信（Push）
+
+~~~
+    git push origin main
+~~~
+
+
+
+
+|command|description|memo|
+|git status|変更を確認する|どのファイルが追加・変更・削除されたかがわかる|
+
+
 ### つづく
 
 ## 🔹Safariのデバッグ
