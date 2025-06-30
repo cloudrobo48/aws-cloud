@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 [← 前のページに戻る](/index.html)
 
 # AWS 技術メモ1
@@ -30,7 +31,8 @@ layout: default
 ### Lambda作成
 
 - Policy作成（JSON）
-~~~
+
+```
     "Effect": "Allow",
     "Action": [
         "logs:CreateLogGroup",
@@ -42,20 +44,21 @@ layout: default
     "Effect": "Allow",
     "Action": "ses:SendEmail",
     "Resource": "*"
-~~~
+```
 
 - Role作成
   - 信頼ポリシー：Lambdaに対してsts:AssumeRole
 - Lambda関数作成
-  - 関数名はスネークケース（小文字で_でつなぐ）
+  - 関数名はスネークケース（小文字で\_でつなぐ）
     - Javaだとキャメルケース（例：sendEmailViaSES）
   - ランタイム:Python
 - Deploy & Test
   - Cloudwatch logsでデバッグ
-~~~
+
+```
     logger.setLevel(logging.DEBUG)
     logger.debug("Lambdaのデバッグログ開始")
-~~~
+```
 
 #### API Gateway作成
 
@@ -66,7 +69,7 @@ layout: default
 - カスタムドメインを作成
   - （事前作成しときます）
   - AP-northeast-1にてACMで証明書をリクエスト
-  - ルートドメイン　＋　「*.ルートドメイン」の2つ
+  - ルートドメイン　＋　「\*.ルートドメイン」の2つ
   - 作成後に表示される情報をRoute53に登録（CNAME）
   - ここで「保留中の検証」ではまる
   - AWS側でCNAME名のところにドメイン名を自動補完したため、存在しないドメイン名になってた
@@ -74,12 +77,12 @@ layout: default
 - CORS設定（HTTP API用の設定）
 
 {:.table-bordered}
-| 項目                        | 値                             | 備考                                    |
+| 項目 | 値 | 備考 |
 |-----------------------------|----------------------------------|-----------------------------------------|
-| Access-Control-Allow-Origin | https://example.com             | GitHub Pagesのカスタムドメイン名を指定     |
-| Access-Control-Allow-Methods| POST, OPTION                    | fetch() を使う場合は OPTION も必要        |
-| Access-Control-Max-Age      | 3600                            |                                           |
-| Access-Control-Allow-Header | content-type                    |                                           |
+| Access-Control-Allow-Origin | https://example.com | GitHub Pagesのカスタムドメイン名を指定 |
+| Access-Control-Allow-Methods| POST, OPTION | fetch() を使う場合は OPTION も必要 |
+| Access-Control-Max-Age | 3600 | |
+| Access-Control-Allow-Header | content-type | |
 
 - APIマッピング（カスタムドメイン使っている場合に必要。カスタムドメインを選択して設定する）
   - APIとステージ（$defalut）とPath（今回はnone）
@@ -100,9 +103,10 @@ layout: default
 - Public subnetにLinux2
 - Security Groupで全ての通信許可
 - コンソールでパケットキャプチャー
-~~~
+
+```
     sudo tcpdump -i eth0 udp port 5004 -nn
-~~~
+```
 
 # ✅Route53で変更した項目のまとめ
 
@@ -118,9 +122,7 @@ layout: default
 |(API Gatewayの独自サブドメイン名)|A|API Gatewayドメイン名|API Gateway作ったら指定必要|
 
 - ※1 ACMで生成されたCNAMEをRoute53に登録する時、ドメイン部分が自動保管されることあるので注意
-~~~
+
+```
     xxxx.domeinmme.com.domainname.com みたいになることがある
-~~~
-
-
-
+```

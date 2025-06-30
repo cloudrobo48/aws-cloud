@@ -1,296 +1,303 @@
-
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    background: url('/images/header-bg.png') no-repeat center center;
-    background-size: cover;
-    color: white;
-    padding: 150px 20px;
+  background: url("/images/header-bg.png") no-repeat center center;
+  background-size: cover;
+  color: white;
+  padding: 150px 20px;
 }
 
 .feature {
-    display: inline-block;
-    width: 45%;
-    margin: 10px;
+  display: inline-block;
+  width: 45%;
+  margin: 10px;
 }
 
 .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease-in-out;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-in-out;
 }
 .visible .fade-in {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .typing {
-    overflow: hidden;
-    white-space: nowrap;
-    animation: typing 3s steps(40, end) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(40, end) forwards;
 }
 @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 15px 0;
-    transition: background 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px 0;
+  transition: background 0.3s ease-in-out;
 }
 
 nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    transition: color 0.3s ease-in-out;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: color 0.3s ease-in-out;
 }
 
 nav ul li a:hover {
-    color: #f39c12; /* オレンジ系でアクセント */
+  color: #f39c12; /* オレンジ系でアクセント */
 }
 
 header {
-    background: url('/images/header-bg.png') no-repeat center center;
-    background-size: cover;
+  background: url("/images/header-bg.png") no-repeat center center;
+  background-size: cover;
 }
 
 .timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
+  position: relative;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
 }
 
 .timeline ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .timeline ul li {
-    position: relative;
-    padding: 15px 25px;
-    margin-bottom: 20px;
-    background: #2c3e50;
-    color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
+  position: relative;
+  padding: 15px 25px;
+  margin-bottom: 20px;
+  background: #2c3e50;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
 }
 
 .timeline ul li:hover {
-    transform: scale(1.02);
-    background: #34495e;
+  transform: scale(1.02);
+  background: #34495e;
 }
 
 .timeline ul li::before {
-    content: "●";
-    position: absolute;
-    left: -15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #f39c12; /* ゴールドカラー */
-    font-size: 16px;
+  content: "●";
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #f39c12; /* ゴールドカラー */
+  font-size: 16px;
 }
 
 .timeline ul li:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .cta {
-    display: inline-block;
-    padding: 15px 30px;
-    background: #3498db;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+  display: inline-block;
+  padding: 15px 30px;
+  background: #3498db;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition:
+    background 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
 }
 
 .cta:hover {
-    background: #2980b9;
-    transform: scale(1.05);
+  background: #2980b9;
+  transform: scale(1.05);
 }
 
 .skills {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px 20px;
 }
 
 .skills p {
-    background: #2c3e50;
-    color: white;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    transition: all 0.3s ease-in-out;
+  background: #2c3e50;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
 }
 
 .skills p:hover {
-    background: #34495e;
+  background: #34495e;
 }
-
 
 body {
-    font-family: 'Noto Sans JP', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-    text-align: center;
-    padding: 20px;
+  font-family: "Noto Sans JP", sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  text-align: center;
+  padding: 20px;
 }
 
-.button, button {
-    display: inline-block;
-    padding: 12px 25px;
-    background: linear-gradient(135deg, #3498db, #2980b9);
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: all 0.3s ease-in-out;
+.button,
+button {
+  display: inline-block;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
 }
-.button:hover, button:hover {
-    background: linear-gradient(135deg, #2980b9, #1f6fb2);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+.button:hover,
+button:hover {
+  background: linear-gradient(135deg, #2980b9, #1f6fb2);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 form {
-    max-width: 400px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
-    backdrop-filter: blur(5px);
+  max-width: 400px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
 }
 
 fieldset {
-    border: none;
-    padding: 15px;
-    overflow: hidden; /* はみ出し防止 */
+  border: none;
+  padding: 15px;
+  overflow: hidden; /* はみ出し防止 */
 }
 
 label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
-input, textarea {
-    width: 100%;
-    max-width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    box-sizing: border-box; /* はみ出し防止 */
+input,
+textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box; /* はみ出し防止 */
 }
 
 textarea {
-    height: 100px;
+  height: 100px;
 }
 
 .container {
-    display: flex; /* 横並びレイアウト */
+  display: flex; /* 横並びレイアウト */
 }
 
 .sidebar {
-    width: 250px;
-    height: 100vh;
-    background: #f8f9fa; /* 他の部分と統一したライトグレー */
-    color: #333; /* テキストを黒に */
-    padding: 20px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    overflow-y: auto;
-    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1); /* 軽いシャドウを追加 */
-    border-right: 2px solid #ddd; /* 控えめな境界線 */
+  width: 250px;
+  height: 100vh;
+  background: #f8f9fa; /* 他の部分と統一したライトグレー */
+  color: #333; /* テキストを黒に */
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1); /* 軽いシャドウを追加 */
+  border-right: 2px solid #ddd; /* 控えめな境界線 */
 }
 
 .sidebar h2 {
-    margin-bottom: 15px;
-    font-size: 20px;
-    color: #444; /* ちょっとだけ濃いめの文字色 */
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #444; /* ちょっとだけ濃いめの文字色 */
 }
 
 .sidebar ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .sidebar ul li {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .sidebar ul li a {
-    color: #333; /* 黒文字に変更 */
-    text-decoration: none;
-    padding: 10px;
-    display: block;
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
+  color: #333; /* 黒文字に変更 */
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
 }
 
 .sidebar ul li a:hover {
-    background: #e0e0e0; /* ホバー時のソフトな背景色 */
-    transform: translateX(5px); /* 軽く右へ動かす */
+  background: #e0e0e0; /* ホバー時のソフトな背景色 */
+  transform: translateX(5px); /* 軽く右へ動かす */
 }
 
 .content {
-    flex-grow: 1;
-    margin-left: 270px; /* サイドバーの幅を考慮した余白 */
-    padding: 20px;
+  flex-grow: 1;
+  margin-left: 270px; /* サイドバーの幅を考慮した余白 */
+  padding: 20px;
 }
 
 #sidebar-nav {
-    list-style: none; /* デフォルトのマーカーを消す */
-    padding: 0;
-    display: block; /* 横並びを防ぐ */
+  list-style: none; /* デフォルトのマーカーを消す */
+  padding: 0;
+  display: block; /* 横並びを防ぐ */
 }
 
 #sidebar-nav li {
-    display: block; /* リスト項目を縦方向に並べる */
-    margin-bottom: 10px; /* 項目間の余白 */
+  display: block; /* リスト項目を縦方向に並べる */
+  margin-bottom: 10px; /* 項目間の余白 */
 }
 
 #sidebar-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 8px;
-    display: block;
-    transition: 0.3s;
+  color: white;
+  text-decoration: none;
+  padding: 8px;
+  display: block;
+  transition: 0.3s;
 }
 
 #sidebar-nav a:hover {
-    background: #34495e;
+  background: #34495e;
 }
 
 .markdown-page .content {
-    text-align: left !important;
-    margin-left: auto;
-    margin-right: auto;
+  text-align: left !important;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .markdown-page p,
 .markdown-page h1,
 .markdown-page h2,
 .markdown-page h3 {
-    text-align: left !important;
+  text-align: left !important;
 }
 
 .fancy-list {
@@ -305,14 +312,16 @@ textarea {
   margin: 12px auto;
   padding: 18px 24px;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .fancy-list li:hover {
   transform: translateY(-5px) scale(1.01);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .modern-card {
@@ -321,13 +330,15 @@ textarea {
   background: #fff;
   padding: 24px 28px;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .modern-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .timeline-cards {
@@ -342,13 +353,15 @@ textarea {
   border-left: 5px solid #3498db;
   padding: 15px 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .career-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
 .career-card.current {
@@ -367,7 +380,8 @@ table {
   width: 100%;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #ccc;
   padding: 8px 12px;
   text-align: left;
@@ -379,25 +393,23 @@ thead {
 /* mdの表のため　ここまで */
 
 @media (max-width: 768px) {
-    .sidebar {
-        display: none;
-    }
-    .content {
-        margin-left: 0; /* 全体の余白をリセット */
-    }
-    .markdown-page .content {
-        margin-left: 0;
-        margin-right: 0;
-    }
+  .sidebar {
+    display: none;
+  }
+  .content {
+    margin-left: 0; /* 全体の余白をリセット */
+  }
+  .markdown-page .content {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 /* PC表示用：Sidebarの分だけスペースを確保 */
 @media (min-width: 769px) {
-    .markdown-page .content {
-        margin-left: 260px; /* サイドバーの幅 */
-        margin-right: auto;
-        text-align: left;
-    }
+  .markdown-page .content {
+    margin-left: 260px; /* サイドバーの幅 */
+    margin-right: auto;
+    text-align: left;
+  }
 }
-
-

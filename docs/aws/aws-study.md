@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 [← 前のページに戻る](/index.html)
 
 # AWS お勉強計画
@@ -21,4 +22,3 @@ layout: default
 # Cloud Formation / Terraform (IaC)
 
 # CI/CD (
-
