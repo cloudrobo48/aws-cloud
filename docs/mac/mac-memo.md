@@ -20,9 +20,36 @@ layout: default
     brew --version
 ~~~
 
-## 🔹Git
+## 🔹VSCodeの拡張機能インストール
+- 左側のサイドバーにある四角のテトリスクリック
+- 検索ボックスに入力してインストール
+~~~
+    Lint系
+        ESLint
+        Prettier
+        npm Inttellisense
 
-### brewでインストール
+    Iac系
+        HashiCorp
+        AWS Toolkit
+        YAML
+~~~
+
+### Gitのadd対象の除外
+
+- .gitignoreを作成して以下の編集
+~~~
+    node_modules/
+    dist/
+    .env
+    .vscode/
+    .DS_Store
+~~~
+
+
+# 🔹Gitインストールと設定
+
+## brewでインストール
 
 ~~~~
     brew install git
@@ -36,21 +63,21 @@ layout: default
 - [.zshrc]ダブルクリックして「export PATH=/usr/local/bin/git:$PATH」を貼り付けて保存
 - ターミナルで[source ~/.zshrc]と[git --version]でバージョンに「(Apple Git-154)」なくなってればＯＫ
 
-### GitHubの情報登録
+## GitHubの情報登録
 
 ~~~
    git config --global user.name "(githubのユーザー名)"
    git config --global user.email "(githubに登録したメールアドレス)"
 ~~~
 
-### GitHub接続のSSHキー作成
+## GitHub接続のSSHキー作成
 
 ~~~
     ssh-keygen -t ed25519 -C "GitHubに登録しているメールアドレス"
     -fで、SSHキーにファイル名をつけれる
 ~~~
 
-### SSHエージェントを起動して鍵を追加する
+## SSHエージェントを起動して鍵を追加する
 
 ~~~
     eval "$(ssh-agent -s)"
@@ -71,11 +98,13 @@ layout: default
 - key typeはAuthentication key
 - keyの部分に作成したSSHキーを貼り付ける
 
-### GitHub接続テスト
+## GitHub接続テスト
 
 ~~~
     ssh -T git@github.com
 ~~~
+
+## Git操作
 
 ### Githubに登録されているデータをクライアントにCloneさせる
 
@@ -105,6 +134,14 @@ layout: default
     git add .
 ~~~
 
+### Macの変更ステージングをキャンセル
+
+~~~
+    git reset
+~~~
+
+
+
 ### Macの変更をコミット
 
 ~~~
@@ -117,11 +154,26 @@ layout: default
     git push origin main
 ~~~
 
-
-
+### その他のGitコマンド
 
 |command|description|memo|
 |git status|変更を確認する|どのファイルが追加・変更・削除されたかがわかる|
+
+
+## Lint導入
+
+### Node+npmインストール　　→　ESLintとPretterインストール
+
+~~~
+    brew install node
+    npm init -y
+    npm install -D eslint prettier
+~~~
+
+### ESLintインストール
+~~~
+    
+~~~
 
 
 ### つづく

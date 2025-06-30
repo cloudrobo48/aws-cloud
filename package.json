@@ -1,0 +1,28 @@
+{
+  "name": "aws-cloud",
+  "version": "1.0.0",
+  "description": "--- layout: default title: README --- # aws-cloud",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudrobo48/aws-cloud.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/cloudrobo48/aws-cloud/issues"
+  },
+  "homepage": "https://github.com/cloudrobo48/aws-cloud#readme",
+  "devDependencies": {
+    "eslint": "^9.30.0",
+    "prettier": "^3.6.2"
+  }
+}
