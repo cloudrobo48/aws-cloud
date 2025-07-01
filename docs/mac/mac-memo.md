@@ -143,26 +143,26 @@ layout: default
     git reset --hard origin/main
 ```
 
-## Macの変更をステージング@ローカルリポジトリ
+## Macの変更をステージング
 
 ```
     git add （ファイル名） または
     git add .
 ```
 
-## Macの変更ステージングをキャンセル@ローカルリポジトリ
+## Macの変更ステージングをキャンセル
 
 ```
     git reset
 ```
 
-## Macの変更をコミット@ローカルリポジトリ
+## Macの変更をコミット
 
 ```
     git commit -m "変更内容の説明メッセージ"
 ```
 
-## Macのローカルリポジトリの変更をリモートリポジトリへ送信（Push）
+## Macのローカルリポジトリのコミットをリモートリポジトリへ送信（Push）
 
 ```
     git push origin main
@@ -175,7 +175,7 @@ layout: default
 
 ## Lint導入
 
-- Gitへ上げる前に、最低限のチェックをクライアントで実施する仕組み
+- 最低限のチェックをクライアントで実施する仕組み
 
 ### Node+npmインストール　　→　ESLintとPretterとmarkdownlintのインストール
 
@@ -226,7 +226,7 @@ layout: default
     npm run lint:md
 ```
 
-## CIのざっくりフロー
+## CIまでのざっくりフロー
 
 ```
     クライアントでソース修正
@@ -234,7 +234,7 @@ layout: default
     addでステージングへ
     statusで状況確認（自分の変更が含まれてる？）
     commit
-    push
+    push　⭐️ここがCIのトリガー
 ```
 
 # CI/CD (CD　継続的デリバリー / デプロイ)
