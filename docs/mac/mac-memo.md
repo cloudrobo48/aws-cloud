@@ -180,10 +180,10 @@ layout: default
 ### Node+npmインストール　　→　ESLintとPretterとmarkdownlintのインストール
 
 ```
-    brew install node
-    npm init -y
-    npm install -D eslint prettier
-    npm install --save-dev markdownlint-cli2
+    brew install node                               # macにNode.jsとnpmをインストール（npmもnodeに含まれている）
+    npm init -y                                     # package.jsonをデフォルト値で一発作成（"yes"で全部スキップ）
+    npm install -D eslint prettier                  # ESLint(Linter)とPrettier(整形ツール)を開発用依存に追加する
+    npm install --save-dev markdownlint-cli2        # Markdown用のLintツールを追加(開発用依存)
 ```
 
 ### 除外path設定
