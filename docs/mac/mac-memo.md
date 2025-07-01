@@ -113,60 +113,69 @@ layout: default
     ssh -T git@github.com
 ```
 
-## Git操作
+# CI/CD (CI　継続的インテグレーション)
 
-### Githubに登録されているデータをクライアントにCloneさせる
+## Github → Macへクローン
+
+- Git上のリモートリポジトリをクライアントのローカルリポジトリに作成
 
 ```
     ~/Gitを作成して移動した
     git clone (Github page - code - 緑のCodeボタンクリック - SSHのタブに表示される情報)
 ```
 
-### Git -> Macへの更新
+## Git -> Macへの展開
+
+- Git上のリモートリポジトリをローカルリポジトリにマージする
 
 ```
    cd (GitHubのリポジトリ)
    git pull origin main
 ```
 
-### Git -> Macへの強制同期（ローカルの変更は破棄される）
+## Git -> Macへの強制同期（ローカルの変更は破棄される）
+
+- Git上の最新のリモートリポジトリの状態確認（マージはしない）
+- ローカルリポジトリの状態を強制的にリモートリポジトリの状態にする
 
 ```
     git fetch origin
     git reset --hard origin/main
 ```
 
-### Macの変更をステージング
+## Macの変更をステージング@ローカルリポジトリ
 
 ```
     git add （ファイル名） または
     git add .
 ```
 
-### Macの変更ステージングをキャンセル
+## Macの変更ステージングをキャンセル@ローカルリポジトリ
 
 ```
     git reset
 ```
 
-### Macの変更をコミット
+## Macの変更をコミット@ローカルリポジトリ
 
 ```
     git commit -m "変更内容の説明メッセージ"
 ```
 
-### Macの変更をリモート送信（Push）
+## Macのローカルリポジトリの変更をリモートリポジトリへ送信（Push）
 
 ```
     git push origin main
 ```
 
-### その他のGitコマンド
+## その他のGitコマンド
 
 |command|description|memo|
 |git status|変更を確認する|どのファイルが追加・変更・削除されたかがわかる|
 
 ## Lint導入
+
+- Gitへ上げる前に、最低限のチェックをクライアントで実施する仕組み
 
 ### Node+npmインストール　　→　ESLintとPretterとmarkdownlintのインストール
 
@@ -198,12 +207,37 @@ layout: default
 
 ### formatの整形
 
+- Scriptの登録（短縮コマンドみたいな感じ）
+- package.jsonを更新
+
+```
+     "scripts": {
+        "lint": "eslint . --ext .js,.jsx",
+        "format": "prettier --write .",
+        "lint:md": "markdownlint-cli2 \"**/*.md\""
+      },
+```
+
 - 以下のコマンドでフォーマット整形してくれるので、早めに実行しとく
 
 ```
     npm run lint
     npm run format
+    npm run lint:md
 ```
+
+## CIのざっくりフロー
+
+```
+    クライアントでソース修正
+    lintやformatで、クライアント側での最低限のチェック実施
+    addでステージングへ
+    statusで状況確認（自分の変更が含まれてる？）
+    commit
+    push
+```
+
+# CI/CD (CD　継続的デリバリー / デプロイ)
 
 ### つづく
 
