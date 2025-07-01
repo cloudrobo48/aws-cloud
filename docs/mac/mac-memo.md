@@ -180,11 +180,46 @@ layout: default
 ### Node+npmインストール　　→　ESLintとPretterとmarkdownlintのインストール
 
 ```
-    brew install node                               # macにNode.jsとnpmをインストール（npmもnodeに含まれている）
-    npm init -y                                     # package.jsonをデフォルト値で一発作成（"yes"で全部スキップ）
-    npm install -D eslint prettier                  # ESLint(Linter)とPrettier(整形ツール)を開発用依存に追加する
-    npm install --save-dev markdownlint-cli2        # Markdown用のLintツールを追加(開発用依存)
+    brew install node                                  # macにNode.jsとnpmをインストール（npmもnodeに含まれている）
+    npm init -y                                        # package.jsonをデフォルト値で一発作成（"yes"で全部スキップ）
+    npm install --save-dev eslint @eslint/js prettier  # ESLint(Linter)とPrettier(整形ツール)を開発用依存に追加する(V9) ※
+    npm install --save-dev markdownlint-cli2           # Markdown用のLintツールを追加(開発用依存)
 ```
+
+### ※ ESLint用のeslint.config.jsを作成
+```
+    import js from '@eslint/js';
+    import prettier from 'eslint-config-prettier';
+    
+    export default [
+      {
+        ignores: ['node_modules/**', 'dist/**'],
+      },
+      js.configs.recommended,
+      {
+        files: ['assets/js/**/*.js'], // ← ブラウザ用JSの場所を指定
+        languageOptions: {
+          globals: {
+            document: true,
+            console: true,
+            fetch: true,
+            setTimeout: true,
+          },
+        },
+        rules: {
+          'no-console': 'warn',
+        },
+      },
+      prettier,
+    ];
+
+    それと、以下実行デリネーム(pacakge.jsonで競合しちゃってるので)
+    mv eslint.config.js eslint.config.mjs
+    このあと
+    npm install --save-dev eslint-config-prettier
+
+```
+
 
 ### 除外path設定
 
