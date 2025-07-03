@@ -1,9 +1,9 @@
 {
   "default": true,
-  "MD013": false,       // 長文許容（日本語書くなら現実的）
-  "MD033": false,       // インラインHTML許容（<details>とかよく使うなら）
-  "MD041": true,        // タイトルは必ず1つ目に H1 で書く
-  "MD024": { "allow_different_nesting": true }, // 同じ見出しの連続は禁止（誤植防止）
-  "MD025": true,        // H1は1個まで（トップページ構成が整う）
-  "MD022": true         // H2とかH3の前後に空行を入れる（読みやすさUP）
+  "MD013": false,
+  "MD033": false,
+  "MD041": true,
+  "MD024": { "allow_different_nesting": true },
+  "MD025": true,
+  "MD022": true
 }
