@@ -29,8 +29,20 @@ jobs:
           LOCAL=$(git rev-parse @)
           REMOTE=$(git rev-parse @{u})
           BASE=$(git merge-base @ @{u})
+
+          echo "LOCAL:  $LOCAL"
+          echo "REMOTE: $REMOTE"
+          echo "BASE:   $BASE"
+
           if [ "$LOCAL" = "$BASE" ]; then
-            echo "❌ This branch is behind remote. Please rebase."
+            echo "❌ This branch is behind remote. Please pull or rebase first."
+            exit 1
+          elif [ "$REMOTE" = "$BASE" ]; then
+            echo "✅ Local is ahead of remote — good to push."
+          elif [ "$LOCAL" = "$REMOTE" ]; then
+            echo "✅ Branch is up to date."
+          else
+            echo "⚠️ Branch has diverged. Manual rebase may be required."
             exit 1
           fi
 
