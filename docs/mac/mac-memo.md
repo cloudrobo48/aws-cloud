@@ -247,7 +247,7 @@ layout: default
 ### ymlファイルのrunから呼ばれるコマンドを登録
 
 - Scriptの登録（短縮コマンドみたいな感じ ~\.github\workflows\xxx.ymlのrunから呼ばれる)
-- package.jsonを更新
+- package.jsonを更新（これは例だよ）
 
 ```
      "scripts": {
@@ -260,6 +260,7 @@ layout: default
 ```
 
 - 以下のコマンドでフォーマット整形してくれるので、早めに実行しとく
+- このコマンドはpackage.jsonに登録したscriptsに対応している、要は短縮コマンドね
 
 ```
     npm run lint
