@@ -34,13 +34,13 @@ jobs:
           echo "REMOTE: $REMOTE"
           echo "BASE:   $BASE"
 
-          if [ "$LOCAL" = "$BASE" ]; then
+          if [ "$LOCAL" = "$REMOTE" ]; then
+            echo "✅ Branch is up to date."
+          elif [ "$LOCAL" = "$BASE" ]; then
             echo "❌ This branch is behind remote. Please pull or rebase first."
             exit 1
           elif [ "$REMOTE" = "$BASE" ]; then
-            echo "✅ Local is ahead of remote — good to push."
-          elif [ "$LOCAL" = "$REMOTE" ]; then
-            echo "✅ Branch is up to date."
+            echo "✅ Local is ahead of remote — safe to push."
           else
             echo "⚠️ Branch has diverged. Manual rebase may be required."
             exit 1
