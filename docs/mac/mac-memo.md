@@ -115,6 +115,16 @@ layout: default
 
 # CI/CD (CI　継続的インテグレーション)
 
+- Gitコマンドは、ローカルのGitホームディレクトリから実施
+- ~/Git　を作成した
+
+|command| 説明 | 備考 |
+|git clone xx|Git上のリモートリポジトリをクライアントのローカルリポジトリに作成|Github page - code - 緑のCodeボタンクリック - SSHタブに表示される情報を指定|
+
+
+
+
+
 ## Github → Macへクローン
 
 - Git上のリモートリポジトリをクライアントのローカルリポジトリに作成
@@ -226,30 +236,35 @@ layout: default
 - 以下のファイルへの整形処理が不要なので除外設定しておく
   - .estintignore
   - .prettierignore
-  - .markdownlintignore
+  - .markdownlint-cli2.jsonc
 
 ```
     .estintignore, .prettierignore
         node_modules/
         dist/
         coverage/
-    .markdownlintignore
-        node_modules/
-        dist/
-        docs/generated/
-        CHANGELOG.md
+
+    .markdownlint-cli2.jsonc
+        "globs": [
+            "**/*.md",            // 対象ファイル
+            "!node_modules",       // 除外
+            "!dist",
+            "!docs/generated",
+            "!CHANGELOG.md"
+            }
 ```
 
-### formatの整形
+## ymlファイルのrunから呼ばれるコマンドを登録
 
-- Scriptの登録（短縮コマンドみたいな感じ）
+- Scriptの登録（短縮コマンドみたいな感じ ~\.github\workflows\xxx.ymlのrunから呼ばれる)
 - package.jsonを更新
 
 ```
      "scripts": {
         "lint": "eslint . --ext .js,.jsx",
         "format": "prettier --write .",
-        "lint:md": "markdownlint-cli2 \"**/*.md\""
+        "lint:md": "markdownlint-cli2 '**/*.md' '#node_modules' '#dist' '#coverage'"
+        "check-all": "npm run lint && npm run format && npm run lint:md"
       },
 ```
 
