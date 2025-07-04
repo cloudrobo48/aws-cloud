@@ -253,6 +253,7 @@ layout: default
      "scripts": {
         "lint": "eslint . --ext .js,.jsx",
         "format": "prettier --write .",
+        "format:check": "prettier --check .",
         "lint:md": "markdownlint-cli2 '**/*.md' '#node_modules' '#dist' '#coverage'"
         "check-all": "npm run lint && npm run format && npm run lint:md"
       },
@@ -262,8 +263,8 @@ layout: default
 
 ```
     npm run lint
-    npm run format
-    npm run lint:md
+    npm run format:check    # writeの方はソースを書き換えてしまうので、チェックだけにするのがおすすめらしい
+    npm run lint:md         # えらい丁寧に指摘してくるので今の所実行しないわ
 ```
 
 ## CIまでのざっくりフロー
