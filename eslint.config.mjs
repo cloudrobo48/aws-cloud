@@ -1,14 +1,14 @@
 // eslint.config.mjs
-import js from '@eslint/js';
-import prettier from 'eslint-config-prettier';
+import js from "@eslint/js";
+import prettier from "eslint-config-prettier";
 
 export default [
   {
-    ignores: ['node_modules/**', 'dist/**'],
+    ignores: ["node_modules/**", "dist/**"],
   },
   js.configs.recommended,
   {
-    files: ['assets/js/**/*.js'], // ← ブラウザ用JSの場所を指定
+    files: ["assets/js/**/*.js"], // ← ブラウザ用JSの場所を指定
     languageOptions: {
       globals: {
         document: true,
@@ -18,7 +18,7 @@ export default [
       },
     },
     rules: {
-      'no-console': 'warn',
+      "no-console": "warn",
     },
   },
   prettier,

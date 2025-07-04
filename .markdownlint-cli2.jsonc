@@ -1,9 +1,9 @@
 {
   "globs": [
-    "**/*.md",            // 対象ファイル
-    "!node_modules",       // 除外
+    "**/*.md", // 対象ファイル
+    "!node_modules", // 除外
     "!dist",
     "!docs/generated",
-    "!CHANGELOG.md"
-  ]
+    "!CHANGELOG.md",
+  ],
 }
