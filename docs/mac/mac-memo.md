@@ -188,11 +188,11 @@ layout: default
 ```
     brew install node                                  # macにNode.jsとnpmをインストール（npmもnodeに含まれている）
     npm init -y                                        # package.jsonをデフォルト値で一発作成（"yes"で全部スキップ）
-    npm install --save-dev eslint @eslint/js prettier  # ESLint(Linter)とPrettier(整形ツール)を開発用依存に追加する(V9) ※
-    npm install --save-dev markdownlint-cli2           # Markdown用のLintツールを追加(開発用依存)
+    npm install --save-dev eslint-config-prettier.     # ESLint(Linter)とPrettier(整形ツール)を開発用依存に追加する(V9) ※
+    npm install --save-dev markdownlint-cli2           # Markdown用のLintツールを追加(開発用依存) 細かいチェックするので導入やめる？
 ```
 
-### ※ ESLint用のeslint.config.jsを作成
+### ※ ESLint用のeslint.config.mjsを作成
 
 ```
     import js from '@eslint/js';
@@ -219,12 +219,6 @@ layout: default
       },
       prettier,
     ];
-
-    それと、以下実行デリネーム(pacakge.jsonで競合しちゃってるので)
-    mv eslint.config.js eslint.config.mjs
-    このあと
-    npm install --save-dev eslint-config-prettier
-
 ```
 
 ### 除外path設定
