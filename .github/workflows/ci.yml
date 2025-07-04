@@ -22,6 +22,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # ① 差分チェックを最初に入れる（フェイルするなら無駄な処理は回さない）
+      - name: Ensure branch is up to date with remote
+        run: |
+          git fetch origin
+          LOCAL=$(git rev-parse @)
+          REMOTE=$(git rev-parse @{u})
+          BASE=$(git merge-base @ @{u})
+          if [ "$LOCAL" = "$BASE" ]; then
+            echo "❌ This branch is behind remote. Please rebase."
+            exit 1
+          fi
+
       - name: Run lint
         run: npm run lint
 
