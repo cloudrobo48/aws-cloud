@@ -25,10 +25,10 @@ jobs:
       # ① 差分チェックを最初に入れる（フェイルするなら無駄な処理は回さない）
       - name: Ensure branch is up to date with remote
         run: |
-          git fetch origin
-          LOCAL=$(git rev-parse @)
-          REMOTE=$(git rev-parse @{u})
-          BASE=$(git merge-base @ @{u})
+          git fetch origin                                   # 最新のリモート情報を取得	手元のGitに「最新のmainはここだよ〜」と教える
+          LOCAL=$(git rev-parse @)                           # 現在のローカルブランチの最新コミット取得	今の自分の状態
+          REMOTE=$(git rev-parse @{u})                       # リモートブランチの最新コミット取得	GitHubにあるmainブランチの状態
+          BASE=$(git merge-base @ @{u})                      # 2つの共通の祖先コミットを取得	いつ分岐したのか（比較の基準点）
 
           echo "LOCAL:  $LOCAL"
           echo "REMOTE: $REMOTE"
