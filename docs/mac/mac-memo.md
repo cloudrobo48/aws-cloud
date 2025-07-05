@@ -280,7 +280,6 @@ layout: default
 ## Hook
 
 - 上記ではPUSHで動くymlファイルにファイルの最新チェックしてたけど、本来はHookですべき
-- CI
 - リポジトリディレクトリの下に.git\hooks\pre-pushを作成
 - ここでLint、Prettier、ローカル最新チェックする
 - git push origin main のコマンド実行前にこの「pre-pus」が動くので、チェック漏れない
@@ -288,6 +287,8 @@ layout: default
   - PUSHは動いたら止まらない
   - エラーとかフォーマット編でもそのまんまでマージされてしまう
   - だからHookで実装する
+- chmod +x .git/hooks/pre-push で権限付与
+- Hookは動いているかわからないのでTerminalで表示できるようにEcho入れた
 
 ## CIまでのざっくりフロー
 
