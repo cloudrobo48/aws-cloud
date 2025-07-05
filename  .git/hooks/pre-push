@@ -1,5 +1,9 @@
 #!/bin/sh
 
+#!/bin/sh
+echo "HOOK動いてるで！！"
+exit 1
+
 # リモートが進んでるかチェック
 git fetch
 LOCAL=$(git rev-parse @)
