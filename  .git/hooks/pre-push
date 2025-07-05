@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# リモートが進んでるかチェック
+git fetch
+LOCAL=$(git rev-parse @)
+REMOTE=$(git rev-parse @{u})
+
+if [ "$LOCAL" != "$REMOTE" ]; then
+  echo "🚨 リモートの方が新しいよ！pullしてからpushしてね！"
+  exit 1
+fi
+
+# Lintチェック
+npm run lint
+[ $? -ne 0 ] && echo "💥 Lintエラーあり！" && exit 1
+
+# Prettierチェック
+npm run format:check
+[ $? -ne 0 ] && echo "📐 Prettierの整形漏れあり！" && exit 1
