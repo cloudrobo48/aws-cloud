@@ -278,6 +278,7 @@ layout: default
   - 比較してローカルが最新ならOK、ダメならexit 1
 
 ## Hook
+
 - 上記ではPUSHで動くymlファイルにファイルの最新チェックしてたけど、本来はHookですべき
 - CI
 - リポジトリディレクトリの下に.git\hooks\pre-pushを作成
@@ -289,7 +290,6 @@ layout: default
   - だからHookで実装する
 
 ## CIまでのざっくりフロー
-
 
 ```
     クライアントでソース修正
