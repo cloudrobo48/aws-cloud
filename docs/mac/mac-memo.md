@@ -123,28 +123,9 @@ layout: default
 |git pull origin main|Git上のリモートリポジトリをローカルリポジトリにマージする||
 |git fetch origin<br>git reset --hard origin/main|Git上の最新のリモートリポジトリの状態確認（マージはしない）<br>ローカルリポジトリの状態を強制的にリモートリポジトリの状態にする||
 |git add （ファイル名） または<br>git add .|Macの変更をステージング||
-
-### Macの変更ステージングをキャンセル
-
-```
-    git reset
-```
-
-### Macの変更をコミット
-
-```
-    git commit -m "変更内容の説明メッセージ"
-```
-
-### Macのローカルリポジトリのコミットをリモートリポジトリへ送信（Push）
-
-```
-    git push origin main
-```
-
-### その他のGitコマンド
-
-|command|description|memo|
+|git reset|Macの変更ステージングをキャンセル||
+|git commit -m "変更内容の説明メッセージ"|Macの変更をコミット|コメントはとても大切！|
+|git push origin main|Macのローカルリポジトリのコミットをリモートリポジトリへ送信（Push）||
 |git status|変更を確認する|どのファイルが追加・変更・削除されたかがわかる|
 
 ### Lint導入
