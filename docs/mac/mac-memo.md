@@ -128,7 +128,7 @@ layout: default
 |git push origin main|Macのローカルリポジトリのコミットをリモートリポジトリへ送信（Push）||
 |git status|変更を確認する|どのファイルが追加・変更・削除されたかがわかる|
 
-### Lint導入
+### Lint導入@クライアント
 
 - 最低限のチェックをクライアントで実施する仕組み
 
@@ -170,7 +170,7 @@ layout: default
     ];
 ```
 
-### 除外path設定
+### lint,prettier実行っ時の除外path設定
 
 - 以下のファイルへの整形処理が不要なので除外設定しておく
   - .estintignore
@@ -193,7 +193,7 @@ layout: default
             }
 ```
 
-### ymlファイルのrunから呼ばれるコマンドを登録
+### ymlファイルのrunから呼ばれる短縮コマンドを登録
 
 - Scriptの登録（短縮コマンドみたいな感じ ~\.github\workflows\xxx.ymlのrunから呼ばれる)
 - package.jsonを更新（これは例だよ）
@@ -208,7 +208,8 @@ layout: default
       },
 ```
 
-- 以下のコマンドでフォーマット整形してくれるので、早めに実行しとく
+### クライアント上でのチェック実行
+- 以下のコマンドでフォーマット整形のチェックなど実行（format:checkはチェックのみ、:writeを指定すると修正してくれる）
 - このコマンドはpackage.jsonに登録したscriptsに対応している、要は短縮コマンドね
 
 ```
@@ -231,13 +232,37 @@ layout: default
 - 上記ではPUSHで動くymlファイルにファイルの最新チェックしてたけど、本来はHookですべき
 - リポジトリディレクトリの下に.git\hooks\pre-pushを作成
 - ここでLint、Prettier、ローカル最新チェックする
-- git push origin main のコマンド実行前にこの「pre-pus」が動くので、チェック漏れない
+- git push origin main のコマンド実行前にこの「pre-push」が動くので、チェック漏れない
 - なぜpushでチェックするのがよくないか？
   - PUSHは動いたら止まらない
   - エラーとかフォーマット編でもそのまんまでマージされてしまう
   - だからHookで実装する
 - chmod +x .git/hooks/pre-push で権限付与
 - Hookは動いているかわからないのでTerminalで表示できるようにEcho入れた
+
+## .husky/
+- 上でHookで実装すべき！と言っていたけどあっさり修正
+- Hookだとクライアント環境に依存してしまうので、開発者が複数いるなら.husky/で実装すべき
+- また、開発者複数いるなら環境をDockerにすべし！
+- というわけで、.husky/は一時中断
+
+## Docker
+- dockerとcolimaをインストール
+```
+    brew install docker    # dockerはLinux上で動くので、まだ動けない（次にインストールするColimaがあると動ける）
+    brew install colima    # colimaインストールすると、先にインストールしたDocker Engilneを自身が起動した仮想マシン（Linuxベース）で動く設定する
+
+    mac os -> colima -> 仮想マシン（Linux） -> Docekr Engine -> まだ出てきてないけどこの上にコンテナが載る。なんなら複数のコンテナが載る
+```
+
+- colima始動（コマンドのなかでDockerも起動してれてる）
+```
+    colima start
+```
+
+- とりあえずDockerの出番はなし、先のステップでDocker活躍する予定なので油断しないように！
+
+
 
 ## CIまでのざっくりフロー
 
