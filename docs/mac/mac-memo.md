@@ -120,41 +120,9 @@ layout: default
 
 |command| 説明 | 備考 |
 |git clone xx|Git上のリモートリポジトリをクライアントのローカルリポジトリに作成|Github page - code - 緑のCodeボタンクリック - SSHタブに表示される情報を指定|
-
-### Github → Macへクローン
-
-- Git上のリモートリポジトリをクライアントのローカルリポジトリに作成
-
-```
-    ~/Gitを作成して移動した
-    git clone (Github page - code - 緑のCodeボタンクリック - SSHのタブに表示される情報)
-```
-
-### Git -> Macへの展開
-
-- Git上のリモートリポジトリをローカルリポジトリにマージする
-
-```
-   cd (GitHubのリポジトリ)
-   git pull origin main
-```
-
-### Git -> Macへの強制同期（ローカルの変更は破棄される）
-
-- Git上の最新のリモートリポジトリの状態確認（マージはしない）
-- ローカルリポジトリの状態を強制的にリモートリポジトリの状態にする
-
-```
-    git fetch origin
-    git reset --hard origin/main
-```
-
-### Macの変更をステージング
-
-```
-    git add （ファイル名） または
-    git add .
-```
+|git pull origin main|Git上のリモートリポジトリをローカルリポジトリにマージする||
+|git fetch origin<br>git reset --hard origin/main|Git上の最新のリモートリポジトリの状態確認（マージはしない）<br>ローカルリポジトリの状態を強制的にリモートリポジトリの状態にする||
+|git add （ファイル名） または<br>git add .|Macの変更をステージング||
 
 ### Macの変更ステージングをキャンセル
 
