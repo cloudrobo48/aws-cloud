@@ -209,6 +209,7 @@ layout: default
 ```
 
 ### クライアント上でのチェック実行
+
 - 以下のコマンドでフォーマット整形のチェックなど実行（format:checkはチェックのみ、:writeを指定すると修正してくれる）
 - このコマンドはpackage.jsonに登録したscriptsに対応している、要は短縮コマンドね
 
@@ -241,13 +242,16 @@ layout: default
 - Hookは動いているかわからないのでTerminalで表示できるようにEcho入れた
 
 ## .husky/
+
 - 上でHookで実装すべき！と言っていたけどあっさり修正
 - Hookだとクライアント環境に依存してしまうので、開発者が複数いるなら.husky/で実装すべき
 - また、開発者複数いるなら環境をDockerにすべし！
 - というわけで、.husky/は一時中断
 
 ## Docker
+
 - dockerとcolimaをインストール
+
 ```
     brew install docker    # dockerはLinux上で動くので、まだ動けない（次にインストールするColimaがあると動ける）
     brew install colima    # colimaインストールすると、先にインストールしたDocker Engilneを自身が起動した仮想マシン（Linuxベース）で動く設定する
@@ -256,13 +260,12 @@ layout: default
 ```
 
 - colima始動（コマンドのなかでDockerも起動してれてる）
+
 ```
     colima start
 ```
 
 - とりあえずDockerの出番はなし、先のステップでDocker活躍する予定なので油断しないように！
-
-
 
 ## CIまでのざっくりフロー
 
