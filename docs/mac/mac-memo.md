@@ -292,6 +292,24 @@ layout: default
     .gitのしたに.huskyってフォルダできてるはず
 ```
 
+### HookをHuskyで実装（Commit編）
+
+- ファイルを作る＋実行可能にする＋Gitとの連携対象にする(普通に作るだけじゃダメなんよ)
+
+```
+    npx husky add .husky/pre-commit "npm run lint"
+
+    これで、git commitコマンド打ったら、.husky/pre-commitが呼び出され、lintが動く
+    はずだったんだけど、このコマンドは非推奨らしい
+
+    #!/bin/sh
+    . "$(dirname "$0")/_/husky.sh"
+    npm run lint
+    これで上書き、というか.husky/_/pre-commit　と言うふうに「_」アンダースコアのフォルダあるから、ここから.huskyに対象ファイル移動
+    chomod +x .husky/pre-commit
+    さらにhooksでの実装は二重管理になってしまうから、.git/hooksに追加したファイルはリネームしとこう！
+```
+
 ## CIまでのざっくりフロー
 
 ```
