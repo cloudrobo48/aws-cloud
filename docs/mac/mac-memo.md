@@ -119,7 +119,8 @@ layout: default
 - ~/Git　を作成した
 
 |command| 説明 | 備考 |
-|git clone xx|Git上のリモートリポジトリをクライアントのローカルリポジトリに作成|Github page - code - 緑のCodeボタンクリック - SSHタブに表示される情報を指定|
+|git clone xx|Git上のリモートリポジトリをクライアントのローカルリポジトリに作成|Github page - code - 緑のCodeボタンクリック - SSHタブに表示される情報を指定|  
+|git init|リモートリポジトリをCloneするんじゃなくて、現在のディレクトリをGitによってバージョン管理する登録作業|空のプロジェクトから始める際に必要|
 |git pull origin main|Git上のリモートリポジトリをローカルリポジトリにマージする||
 |git fetch origin<br>git reset --hard origin/main|Git上の最新のリモートリポジトリの状態確認（マージはしない）<br>ローカルリポジトリの状態を強制的にリモートリポジトリの状態にする||
 |git add （ファイル名） または<br>git add .|Macの変更をステージング||
@@ -234,6 +235,7 @@ layout: default
 - リポジトリディレクトリの下に.git\hooks\pre-pushを作成
 - ここでLint、Prettier、ローカル最新チェックする
 - git push origin main のコマンド実行前にこの「pre-push」が動くので、チェック漏れない
+- ※このpre-pushはGitの仕組みで自動で呼んでくれるんだよ。だからymlファイルやPackage.jsonにも記載ないんだよ
 - なぜpushでチェックするのがよくないか？
   - PUSHは動いたら止まらない
   - エラーとかフォーマット編でもそのまんまでマージされてしまう
@@ -266,6 +268,29 @@ layout: default
 ```
 
 - とりあえずDockerの出番はなし、先のステップでDocker活躍する予定なので油断しないように！
+
+## .hsuky/の続き
+
+### huskyのinstall(npmコマンドはNode.jsのコマンドだよ)
+
+-
+
+```
+    npm install -D husky
+
+    [-D] は --save-dev の略で「開発用依存」に追加するって意味やね
+    package.json の devDependencies に記録される
+```
+
+### Git連携の初期化
+
+- gitにhuskyを連携させる
+
+```
+    npx husky install
+
+    .gitのしたに.huskyってフォルダできてるはず
+```
 
 ## CIまでのざっくりフロー
 
