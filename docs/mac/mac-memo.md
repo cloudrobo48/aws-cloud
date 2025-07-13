@@ -70,7 +70,7 @@ layout: default
 - ホームディレクトリ（~）をlsで確認し、[.zshrc]がなければtouch
 - Finderで[command]+[shift]+[.]で非表示のファイルが表示される
 - [.zshrc]ダブルクリックして「export PATH=/usr/local/bin/git:$PATH」を貼り付けて保存
-- ターミナルで[source ~/.zshrc]と[git --version]でバージョンに「(Apple Git-154)」なくなってればＯＫ
+- ターミナルで[source ~/.zshrc]と[git --version]でバージョンに「(Apple Git-154)」の記載がなくなってればＯＫ
 
 ### GitHubの情報登録
 
@@ -295,20 +295,35 @@ layout: default
 ### HookをHuskyで実装（Commit編）
 
 - ファイルを作る＋実行可能にする＋Gitとの連携対象にする(普通に作るだけじゃダメなんよ)
-
 ```
     npx husky add .husky/pre-commit "npm run lint"
+```
 
-    これで、git commitコマンド打ったら、.husky/pre-commitが呼び出され、lintが動く
-    はずだったんだけど、このコマンドは非推奨らしい
-
+- これで、git commitコマンド打ったら、.husky/pre-commitが呼び出され、lintが動くはずだったんだけど、このコマンドは非推奨らしい
+```
     #!/bin/sh
     . "$(dirname "$0")/_/husky.sh"
     npm run lint
-    これで上書き、というか.husky/_/pre-commit　と言うふうに「_」アンダースコアのフォルダあるから、ここから.huskyに対象ファイル移動
-    chomod +x .husky/pre-commit
-    さらにhooksでの実装は二重管理になってしまうから、.git/hooksに追加したファイルはリネームしとこう！
 ```
+- これで上書き、というか.husky/_/pre-commit　と言うふうに「_」アンダースコアのフォルダあるから、ここから.huskyに対象ファイル移動
+```
+    chomod +x .husky/pre-commit
+```
+- さらにhooksでの実装は二重管理になってしまうから、.git/hooksに追加したファイルはリネームしとこう！
+- git commit -m "aaa"で.husky/pre-commitが動いてる形跡ない！（Echo入れてるので動いたらわかる）
+- .git/hooks/pre-commitのシンボリックリンクなし（ちょっと表現微妙かも）
+```
+    ls -l .git/hooks | grep pre-commit
+    -rwxr-xr-x  1 (username))  staff  1649  6 25 00:48 pre-commit.sample
+```
+- シンボリックリンクができない場合は以下の手順
+```
+    ln -s ../../.husky/pre-commit .git/hooks/pre-commit
+````
+- ln -s A B は「Bという名前でAを参照できるようにする」っていうこと
+  - リポジトリのディレクトリからコマンドを打つとして、Bから見て、Aがどこにいるかと言う指定をするから../../.huskyとなっている
+
+
 
 ## CIまでのざっくりフロー
 
