@@ -1,12 +1,22 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+echo "🚧 Running pre-commit hook: formatting check..."
+npm run format
+format_status=$?
+
 echo "🚧 Running pre-commit hook: linting..."
 npm run lint
+lint_status=$?
 
-if [ $? -ne 0 ]; then
+if [ $format_status -ne 0 ]; then
+  echo "❌ Format check failed. Please run 'npm run format:write' to fix formatting issues."
+  exit 1
+fi
+
+if [ $lint_status -ne 0 ]; then
   echo "❌ Lint failed. Commit aborted by pre-commit hook."
   exit 1
-else
-  echo "✅ Lint passed! Proceeding with commit."
 fi
+
+echo "✅ Format & Lint passed! Proceeding with commit."
