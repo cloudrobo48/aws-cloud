@@ -2,9 +2,13 @@ name: Lint on Push
 
 on:
   push:
-    branches: [main, "feature/**"]
+    branches:
+      - main
+      - feature/*
   pull_request:
-    branches: [main, "feature/**"]
+    branches:
+      - main
+      - feature/*
 
 jobs:
   lint:
