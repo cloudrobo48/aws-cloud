@@ -332,10 +332,55 @@ layout: default
 - ln -s A B は「Bという名前でAを参照できるようにする」っていうこと
   - リポジトリのディレクトリからコマンドを打つとして、Bから見て、Aがどこにいるかと言う指定をするから../../.huskyとなっている
 
+## Brach作成
+
+- 追加機能が出てきたらFeatureブランチを切ろう
+
+```
+    git checkout -b feature/setup-ci
+    Switched to a new branch 'feature/setup-ci'
+
+    git push origin feature/setup-ci
+
+    To github.com:cloudrobo48/aws-cloud.git
+     * [new branch]      feature/setup-ci -> feature/setup-ci
+```
+
+- Push時にGithub Actionsが動かない、、
+- ymlファイルの定義が必要
+  - FeatureブランチにPUSHした時もCIが動くように修正する
+
+```
+(修正前イメージ)
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+(修正後イメージ)
+on:
+  push:
+    branches: [main, "feature/**"]
+  pull_request:
+    branches: [main, "feature/**"]
+```
+
+## TEST
+
+- リポジトリルート直下に「test」フォルダ作成
+
+on:
+push:
+branches: [main, "feature/**"]
+pull_request:
+branches: [main, "feature/**"]
+
 ## CIまでのざっくりフロー
 
 ```
     クライアントでソース修正
+    lintやformatで、クライアント側での最低限のチェック実施
     lintやformatで、クライアント側での最低限のチェック実施
     addでステージングへ
     statusで状況確認（自分の変更が含まれてる？）

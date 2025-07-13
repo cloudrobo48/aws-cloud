@@ -4,7 +4,7 @@ import prettier from "eslint-config-prettier";
 
 export default [
   {
-    ignores: ["node_modules/**", "dist/**"],
+    ignores: ["node_modules/**", "dist/**", ".env", ".vscode/**", ".DS_Store"],
   },
   js.configs.recommended,
   {
@@ -18,7 +18,7 @@ export default [
       },
     },
     rules: {
-      "no-console": "warn",
+      "no-console": "off",
     },
   },
   prettier,
