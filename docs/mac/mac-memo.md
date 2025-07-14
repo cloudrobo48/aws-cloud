@@ -189,7 +189,6 @@ layout: default
     node_modules/
     dist/
     coverage/
-
 ```
 
 ### ymlファイルのrunから呼ばれる短縮コマンドを登録
@@ -347,6 +346,9 @@ layout: default
 - Push時にGithub Actionsが動かない、、
 - ymlファイルの定義が必要
   - FeatureブランチにPUSHした時もCIが動くように修正する
+- 注意⭐️
+  - いつもの癖で、git push origin mainと言うふうにmainにPushしたらだめです！！！！
+  - ここからはFeatureのBranchにPUSH ⇨ PR ⇨ Mainにマージと言う流れ
 
 ```
 (修正前イメージ)
@@ -359,20 +361,28 @@ on:
 (修正後イメージ)
 on:
   push:
-    branches: [main, "feature/**"]
+    branches:
+      - main
+      - feature/*
   pull_request:
-    branches: [main, "feature/**"]
+    branches:
+      - main
+      - feature/*
 ```
 
 ## TEST
 
 - リポジトリルート直下に「test」フォルダ作成
+- Jtestインストール
 
-on:
-push:
-branches: [main, "feature/**"]
-pull_request:
-branches: [main, "feature/**"]
+```
+    npm install --save-dev jest
+```
+
+```Package.json
+  "scripts": {
+    "test": "jest",
+```
 
 ## CIまでのざっくりフロー
 
