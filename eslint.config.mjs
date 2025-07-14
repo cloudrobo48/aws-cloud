@@ -21,5 +21,18 @@ export default [
       "no-console": "off",
     },
   },
+  {
+    files: ["tests/**/*.js"], // Jest用のファイル指定
+    languageOptions: {
+      globals: {
+        test: true,
+        expect: true,
+        describe: true,
+        beforeEach: true,
+        afterEach: true,
+        jest: true,
+      },
+    },
+  },
   prettier,
 ];

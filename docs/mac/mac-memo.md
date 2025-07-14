@@ -128,6 +128,7 @@ layout: default
 |git commit -m "変更内容の説明メッセージ"|Macの変更をコミット|コメントはとても大切！|
 |git push origin main|Macのローカルリポジトリのコミットをリモートリポジトリへ送信（Push）||
 |git status|変更を確認する|どのファイルが追加・変更・削除されたかがわかる|
+|git branch --show-current|ローカルでどこのブランチに向いているのか確認||
 
 ### Lint導入@クライアント
 
@@ -164,7 +165,7 @@ layout: default
           },
         },
         rules: {
-          'no-console': 'warn',
+          'no-console': 'warn',        -> offの方がいいね「Console」のソースがWarningになる（本番にはConsoleの記載なない方がよいから）
         },
       },
       prettier,
@@ -174,24 +175,20 @@ layout: default
 ### lint,prettier実行っ時の除外path設定
 
 - 以下のファイルへの整形処理が不要なので除外設定しておく
-  - .estintignore
-  - .prettierignore
-  - .markdownlint-cli2.jsonc
+  - eslint.config.mjs
 
 ```
-    .estintignore, .prettierignore
-        node_modules/
-        dist/
-        coverage/
+  {
+    ignores: ["node_modules/**", "dist/**", ".env", ".vscode/**", ".DS_Store"],
+  },
+```
 
-    .markdownlint-cli2.jsonc
-        "globs": [
-            "**/*.md",            // 対象ファイル
-            "!node_modules",       // 除外
-            "!dist",
-            "!docs/generated",
-            "!CHANGELOG.md"
-            }
+- .prettierignore
+
+```
+    node_modules/
+    dist/
+    coverage/
 ```
 
 ### ymlファイルのrunから呼ばれる短縮コマンドを登録
@@ -349,6 +346,9 @@ layout: default
 - Push時にGithub Actionsが動かない、、
 - ymlファイルの定義が必要
   - FeatureブランチにPUSHした時もCIが動くように修正する
+- 注意⭐️
+  - いつもの癖で、git push origin mainと言うふうにmainにPushしたらだめです！！！！
+  - ここからはFeatureのBranchにPUSH ⇨ PR ⇨ Mainにマージと言う流れ
 
 ```
 (修正前イメージ)
@@ -361,20 +361,28 @@ on:
 (修正後イメージ)
 on:
   push:
-    branches: [main, "feature/**"]
+    branches:
+      - main
+      - feature/*
   pull_request:
-    branches: [main, "feature/**"]
+    branches:
+      - main
+      - feature/*
 ```
 
 ## TEST
 
 - リポジトリルート直下に「test」フォルダ作成
+- Jtestインストール
 
-on:
-push:
-branches: [main, "feature/**"]
-pull_request:
-branches: [main, "feature/**"]
+```
+    npm install --save-dev jest
+```
+
+```Package.json
+  "scripts": {
+    "test": "jest",
+```
 
 ## CIまでのざっくりフロー
 

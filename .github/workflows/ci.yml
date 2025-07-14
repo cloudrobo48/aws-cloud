@@ -28,3 +28,6 @@ jobs:
 
       - name: Run lint
         run: npm run lint
+
+      - name: Run Prettier
+        run: npm run format
