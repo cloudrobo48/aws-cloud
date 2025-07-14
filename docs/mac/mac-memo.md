@@ -384,6 +384,65 @@ on:
     "test": "jest",
 ```
 
+- Jestは「xx.test.js」みたいなのを自動で見つけて、テストしてくれるので、このテストを実行しなさいという明示的な指示は不要
+
+- node.jsがES Moduleに対応していないエラー
+
+```
+    import { validateInputs } from "../assets/js/validateInputs.js";
+```
+
+- 上記の書き方だとNode.jsがCommon.jsと混同してしまうらしい
+- 対応方法はrequire()を使うか、pacakge.jsonにtype moduleの記載追加してES Module使う宣言するの2択
+- ES Module使う方法で修正
+
+## ES Module 対応
+
+```package.json
+    "type": "commonjs",    修正前
+    "type": "module",      修正後
+```
+
+- babelインストール
+
+```
+    npm install --save-dev babel-jest @babel/core @babel/preset-env
+```
+
+- babel.config.jsの作成
+
+```babel.config.js
+    export default {
+      presets: [['@babel/preset-env', { targets: { node: 'current' } }]],
+    };
+```
+
+## テストのカバレッジ
+
+- 以下のコマンドでテストのカバレッジが出る
+
+```
+    npm run test -- --coverage
+```
+
+- ただし、このままでは存在するテストソースに対してのカバレッジであり、テストされていない部分は出てこない
+-
+
+```jest.config.js
+    export default {
+      collectCoverageFrom: [
+        "assets/js/**/*.js",  // ← テストすべきソースコードの範囲を指定！
+      ],
+    };
+```
+
+- リポジトリディレクトリ直下にcoverageが生成される
+  - 無駄なので無視設定入れよう
+
+```.gitignore
+    coverage/
+```
+
 ## CIまでのざっくりフロー
 
 ```
