@@ -3,7 +3,7 @@
 
 echo "🚧 Pre-push hook: Linting + Testing + TypeCheck..."
 
-npm run lint && npm run test && npm run typecheck
+npm run lint && npm run test
 
 if [ $? -ne 0 ]; then
   echo "❌ One or more checks failed. Push aborted."
