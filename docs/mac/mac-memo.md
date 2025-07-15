@@ -404,6 +404,7 @@ on:
 ```
 
 - babelインストール
+  - jtestがES Moduleを理解できるようにするのがbabel
 
 ```
     npm install --save-dev babel-jest @babel/core @babel/preset-env
