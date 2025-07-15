@@ -444,6 +444,29 @@ on:
     coverage/
 ```
 
+## pre-push
+
+- pre-pushのおさらい
+```
+    npx husky add .husky/pre-push
+    cd .git/_/
+    copy pre-push ../
+    cd  .git
+    chmod +x pre-push
+```
+
+## mainへの直接PUSHを防ぐ設定@Github
+
+- setting - Branches - Add Branch rule set
+- Target Branch
+  - main
+- Restrict deletions
+- Require a pull request before merging 
+- Require status check to pass
+  - ymlで記載しているjob名を指定する
+- Block force pushes
+
+
 ## CIまでのざっくりフロー
 
 ```
