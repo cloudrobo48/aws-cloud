@@ -1,0 +1,13 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🚧 Pre-push hook: Linting + Testing + TypeCheck..."
+
+npm run lint && npm run test && npm run typecheck
+
+if [ $? -ne 0 ]; then
+  echo "❌ One or more checks failed. Push aborted."
+  exit 1
+fi
+
+echo "✅ All checks passed! Pushing allowed."
