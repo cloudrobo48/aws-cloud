@@ -447,6 +447,7 @@ on:
 ## pre-push
 
 - pre-pushのおさらい
+
 ```
     npx husky add .husky/pre-push
     cd .git/_/
@@ -461,11 +462,10 @@ on:
 - Target Branch
   - main
 - Restrict deletions
-- Require a pull request before merging 
+- Require a pull request before merging
 - Require status check to pass
   - ymlで記載しているjob名を指定する
 - Block force pushes
-
 
 ## CIまでのざっくりフロー
 
