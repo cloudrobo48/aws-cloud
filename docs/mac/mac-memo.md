@@ -470,6 +470,7 @@ on:
 ## Slack
 
 - AppStoreからSlack for Desktopインストール
+- githubと連携
 
 ## CIまでのざっくりフロー
 
