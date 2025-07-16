@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOMContentLoaded 発火！");
-  const headings = document.querySelectorAll("h1");
+  const headings = document.querySelectorAll("h2");
   console.log("見出し取得:", headings);
 
   const nav = document.getElementById("sidebar-nav");

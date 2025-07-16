@@ -467,6 +467,10 @@ on:
   - ymlで記載しているjob名を指定する
 - Block force pushes
 
+## Slack
+
+- AppStoreからSlack for Desktopインストール
+
 ## CIまでのざっくりフロー
 
 ```
