@@ -55,13 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const headings = document.querySelectorAll("h2");
   console.log("見出し取得:", headings);
 
-  const nav = document.getElementById("sidebar-nav");
-  console.log("sidebar-nav:", nav);
+  //  const nav = document.getElementById("sidebar-nav");
+  //  console.log("sidebar-nav:", nav);
 
-  if (!nav) {
-    console.error("sidebar-nav が見つかりません！");
-    return;
-  }
+  //  if (!nav) {
+  //    console.error("sidebar-nav が見つかりません！");
+  //    return;
+  //  }
 
   headings.forEach((heading) => {
     if (!heading.id) {
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const listItem = document.createElement("li");
     listItem.appendChild(link);
-    nav.appendChild(listItem);
+    //    nav.appendChild(listItem);
   });
 
   console.log("メニュー生成完了");
