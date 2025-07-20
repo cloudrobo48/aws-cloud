@@ -41,24 +41,24 @@ header {
     width: 100%;
   }
 }
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+}
 nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 15px 0;
-  transition: background 0.3s ease-in-out;
+  justify-content: flex-end;
+  padding: 10px 30px;
 }
-
 nav ul li a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 20px;
-  transition: color 0.3s ease-in-out;
+  color: #333;
+  font-weight: bold;
+  padding: 8px 16px;
 }
-
 nav ul li a:hover {
-  color: #f39c12; /* オレンジ系でアクセント */
+  color: #3498db;
 }
 
 header {
