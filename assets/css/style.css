@@ -99,11 +99,6 @@ nav ul li a:hover {
   transform: scale(1.05);
 }
 
-header {
-  background: url("/images/header-bg.png") no-repeat center center;
-  background-size: cover;
-}
-
 .timeline {
   position: relative;
   max-width: 800px;
