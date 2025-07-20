@@ -160,24 +160,29 @@ nav ul li a:hover {
 }
 
 .skills {
+  background-color: #ffffff;
+  padding: 50px 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin: 60px auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 50px 20px;
-  max-width: 1000px;
-  margin: 0 auto;
+  gap: 24px;
 }
 
 .skills li {
-  background: none;
-  border-left: none;
-  padding: 16px 0;
-  box-shadow: none;
+  background: #fff;
+  border-left: 5px solid #3498db;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
 }
 
 .skills li:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
 }
 
 .skills strong {
