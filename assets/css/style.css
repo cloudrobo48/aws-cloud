@@ -77,15 +77,14 @@ nav ul {
 }
 
 nav ul li a {
-  color: #ffffff;
+  color: #3498db;
   font-weight: bold;
-  text-decoration: none; /* 下線を消す */
-  padding: 10px 15px;
-  transition: color 0.3s ease;
+  text-decoration: underline;
+  transition: all 0.3s ease;
 }
-
 nav ul li a:hover {
-  color: #f1c40f; /* 明るめのアクセントカラー */
+  color: #1f6fb2;
+  text-decoration-thickness: 2px;
 }
 
 header {
@@ -163,14 +162,10 @@ header {
 }
 
 .skills li {
-  background: linear-gradient(135deg, #ffffff, #f2f6fc);
-  border-left: 5px solid #3498db;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  background: none;
+  border-left: none;
+  padding: 16px 0;
+  box-shadow: none;
 }
 
 .skills li:hover {
