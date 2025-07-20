@@ -6,10 +6,32 @@ body {
 }
 
 header {
+  position: relative;
   background: url("/images/header-bg.png") no-repeat center center;
   background-size: cover;
-  color: white;
-  padding: 150px 20px;
+  height: 300px;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* 背景画像を暗くするオーバーレイ */
+  z-index: 1;
+}
+
+header h1 {
+  position: relative;
+  z-index: 2;
+  font-size: 2.5em;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  margin: 0;
 }
 
 .feature {
@@ -49,16 +71,21 @@ nav {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
 }
 nav ul {
-  justify-content: flex-end;
-  padding: 10px 30px;
+  justify-content: center;
+  background: none;
+  padding: 0;
 }
+
 nav ul li a {
-  color: #333;
+  color: #ffffff;
   font-weight: bold;
-  padding: 8px 16px;
+  text-decoration: none; /* 下線を消す */
+  padding: 10px 15px;
+  transition: color 0.3s ease;
 }
+
 nav ul li a:hover {
-  color: #3498db;
+  color: #f1c40f; /* 明るめのアクセントカラー */
 }
 
 header {
