@@ -31,8 +31,29 @@ header::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1;
+}
+
+header h1 {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  font-size: 2.8em;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* 白文字をくっきり見せる影 */
+  animation: fadeInText 1s ease-out forwards;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 header h1,
