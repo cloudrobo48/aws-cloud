@@ -1,6 +1,6 @@
-import { validateInputs } from "./validateInputs.js";
-import { sendFormData } from "./sendFormData.js";
-import { updateUI } from "./updateUI.js";
+import { validateInputs } from "/assets/js/validateInputs.js";
+import { sendFormData } from "/assets/js/sendFormData.js";
+import { updateUI } from "/assets/js/updateUI.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const button = document.getElementById("submitButton");
