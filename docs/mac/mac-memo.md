@@ -485,6 +485,7 @@ on:
 ```
 
 ## 新しいリポジトリ@Python
+
 - Githubでリポジトリ作成
 - CodeタブからSSHの情報メモ
 - Gitディレクト移動
@@ -499,16 +500,19 @@ on:
 - ※ Python開発ならEslint, Prettierは原則不要（Python関係のツールを使う）
   - prettier -> Black
   - eslint -> Flake8
+
 ```
     npm install --save-dev eslint prettier
     npm install --save-dev eslint-config-prettier
     npm uninstall eslint prettier eslint-config-prettier
 ```
+
 - バージョン指定のインストール（ただし、Pythonでは不要）
 - npm install --save-dev eslint@8.56.0 prettier@2.8.8
 - npm install --save-dev eslint-config-prettier@9.0.0
 
 - Package.jsonに追加
+
 ```
 "scripts": {
   "lint": "eslint src/",
@@ -517,6 +521,7 @@ on:
 ```
 
 - requirement-dev.txtを作成する
+
 ```
 flake8==6.1.0
 black==24.3.0
@@ -528,24 +533,25 @@ coverage==7.4.4
 boto3==1.34.102
 moto==5.0.12
 ```
+
 - PIPでインストール
 - pip3 install -r requirements-dev.txt
 - .zshrcにPath通そう
   - export PATH=$HOME/Library/Python/3.9/bin:$PATH
 - ターミナルで設定したPathを読み込む
   - source ~/.zshrc
-　
+
 - .gitignore追加して整備
 - npx eslint --init
   - 質問に答えて設定する
 - ※ESLintで「Flat config」という設定方式となる
   - eslint.config.mjsができた場合はFlat config形式
-  
 
 - pre-commitをインストール
 - pip3 install pre-commit
 
 - .pre-commit-config.yamlを作成して中身作成
+
 ```
 repos:
   - repo: https://github.com/psf/black
@@ -568,6 +574,7 @@ repos:
     hooks:
       - id: mypy
 ```
+
 - pre-commit installで、.git/hooks/pre-commitに登録
 - .gitフォルダは通常見れないよ
 
@@ -576,13 +583,6 @@ repos:
 - テスト実行
   - PYTHONPATH=./ pytest --cov=src --cov-report=term-missing
   - pytest --cov=src --cov-report=term-missing
-
-
-
-
-
-
-
 
 ## 今後の予定
 
