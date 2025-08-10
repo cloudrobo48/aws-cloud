@@ -172,7 +172,7 @@ layout: default
     ];
 ```
 
-### lint,prettier実行っ時の除外path設定
+### lint,prettier実行時の除外path設定
 
 - 以下のファイルへの整形処理が不要なので除外設定しておく
   - eslint.config.mjs
@@ -483,6 +483,106 @@ on:
     commit
     push　⭐️ここがCIのトリガー
 ```
+
+## 新しいリポジトリ@Python
+- Githubでリポジトリ作成
+- CodeタブからSSHの情報メモ
+- Gitディレクト移動
+- git clone (sshの情報)
+- mkdir src
+- mkdir node-cd
+- mkdir tests
+- npm init -y
+
+- 以下はバージョン指定しないでインストールしたから、そのあとインストールする手順
+- この手順はスルーして良い
+- ※ Python開発ならEslint, Prettierは原則不要（Python関係のツールを使う）
+  - prettier -> Black
+  - eslint -> Flake8
+```
+    npm install --save-dev eslint prettier
+    npm install --save-dev eslint-config-prettier
+    npm uninstall eslint prettier eslint-config-prettier
+```
+- バージョン指定のインストール（ただし、Pythonでは不要）
+- npm install --save-dev eslint@8.56.0 prettier@2.8.8
+- npm install --save-dev eslint-config-prettier@9.0.0
+
+- Package.jsonに追加
+```
+"scripts": {
+  "lint": "eslint src/",
+  "format": "prettier --write src/",
+}
+```
+
+- requirement-dev.txtを作成する
+```
+flake8==6.1.0
+black==24.3.0
+pytest==8.0.0
+pytest-cov==4.1.0
+isort==5.12.0
+mypy==1.10.0
+coverage==7.4.4
+boto3==1.34.102
+moto==5.0.12
+```
+- PIPでインストール
+- pip3 install -r requirements-dev.txt
+- .zshrcにPath通そう
+  - export PATH=$HOME/Library/Python/3.9/bin:$PATH
+- ターミナルで設定したPathを読み込む
+  - source ~/.zshrc
+　
+- .gitignore追加して整備
+- npx eslint --init
+  - 質問に答えて設定する
+- ※ESLintで「Flat config」という設定方式となる
+  - eslint.config.mjsができた場合はFlat config形式
+  
+
+- pre-commitをインストール
+- pip3 install pre-commit
+
+- .pre-commit-config.yamlを作成して中身作成
+```
+repos:
+  - repo: https://github.com/psf/black
+    rev: 24.3.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.1.0
+    hooks:
+      - id: flake8
+
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.10.0
+    hooks:
+      - id: mypy
+```
+- pre-commit installで、.git/hooks/pre-commitに登録
+- .gitフォルダは通常見れないよ
+
+- testsフォルダ作成
+
+- テスト実行
+  - PYTHONPATH=./ pytest --cov=src --cov-report=term-missing
+  - pytest --cov=src --cov-report=term-missing
+
+
+
+
+
+
+
 
 ## 今後の予定
 
