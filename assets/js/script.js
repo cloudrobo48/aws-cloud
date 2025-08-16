@@ -16,9 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      if (submitted) {
-        return; // すでに送信済みなら何もしない
-      }
+      if (submitted) return;
 
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
@@ -55,6 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
         responseMessage.textContent = "ネットワークエラーが発生しました。";
         button.textContent = "送信失敗";
       }
+
+      // ボタンは再度有効化しない
     });
   });
 });
