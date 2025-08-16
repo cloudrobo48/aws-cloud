@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (submitted) return;
     submitted = true;
+    button.disabled = true;
 
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const validationResult = validateInputs({ name, email, message });
     if (!validationResult.success) {
-      updateUI(button, responseMessage, validationResult);
+      button.disabled = false;
       submitted = false; // バリデーション失敗時は再送信可能に
       return;
     }
