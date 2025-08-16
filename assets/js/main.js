@@ -7,14 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const button = document.getElementById("submitButton");
   const responseMessage = document.getElementById("responseMessage");
 
-  let submitted = false;
+  //  let submitted = false;
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    if (submitted) return;
-    submitted = true;
-    button.disabled = true;
+    //  if (submitted) return;
+    //  submitted = true;
+    //  button.disabled = true;
 
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const validationResult = validateInputs({ name, email, message });
     if (!validationResult.success) {
-      button.disabled = false;
-      submitted = false; // バリデーション失敗時は再送信可能に
+      //      button.disabled = false;
+      //    submitted = false; // バリデーション失敗時は再送信可能に
       return;
     }
 
