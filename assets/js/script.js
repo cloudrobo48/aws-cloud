@@ -11,8 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById("submitButton");
     const responseMessage = document.getElementById("responseMessage");
 
+    let submitted = false;
+
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
+
+      if (submitted) {
+        return; // すでに送信済みなら何もしない
+      }
 
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
@@ -25,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      submitted = true;
       button.disabled = true;
       button.textContent = "送信中...";
 
@@ -40,17 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
         responseMessage.textContent = response.ok
           ? "送信しました。ご連絡ありがとうございました。"
           : "送信に失敗しました。";
+        button.textContent = response.ok ? "送信完了" : "送信失敗";
       } catch (error) {
         console.error("送信エラー:", error);
         responseMessage.style.display = "block";
         responseMessage.style.color = "red";
         responseMessage.textContent = "ネットワークエラーが発生しました。";
+        button.textContent = "送信失敗";
       }
-
-      setTimeout(() => {
-        button.disabled = false;
-        button.textContent = "送信";
-      }, 2000);
     });
   });
 });
