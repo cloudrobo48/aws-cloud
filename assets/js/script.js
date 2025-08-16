@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       submitted = true;
-      button.disabled = true;
       button.textContent = "送信中...";
 
       try {
