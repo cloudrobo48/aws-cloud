@@ -7,15 +7,15 @@
 
 ## 🧩 使用技術・サービス
 
-| 種類 | サービス | 備考 |
-|------|----------|------|
-| フロントエンド | GitHub Pages | カスタムドメイン設定済み |
-| バックエンド | AWS API Gateway（HTTP API） | Lambda統合 |
-| 実行処理 | AWS Lambda | IAMロールで権限管理 |
-| ドメイン管理 | Route53 | CNAMEレコードでドメイン紐づけ |
-| 証明書管理 | AWS ACM（ap-northeast-1） | DNS検証で証明書発行 |
-| 認証 | DNS検証（CNAME） | ACMが提示するレコードをRoute53に登録 |
-| 通信 | HTTPS（Fetch） | CORS対応済み |
+| 種類           | サービス                    | 備考                                 |
+| -------------- | --------------------------- | ------------------------------------ |
+| フロントエンド | GitHub Pages                | カスタムドメイン設定済み             |
+| バックエンド   | AWS API Gateway（HTTP API） | Lambda統合                           |
+| 実行処理       | AWS Lambda                  | IAMロールで権限管理                  |
+| ドメイン管理   | Route53                     | CNAMEレコードでドメイン紐づけ        |
+| 証明書管理     | AWS ACM（ap-northeast-1）   | DNS検証で証明書発行                  |
+| 認証           | DNS検証（CNAME）            | ACMが提示するレコードをRoute53に登録 |
+| 通信           | HTTPS（Fetch）              | CORS対応済み                         |
 
 ---
 
@@ -89,7 +89,6 @@
 - CI/CDパイプラインの構築（GitHub Actions × AWS）
 - Lambdaの処理内容の拡張
 - API Gatewayのステージ管理とバージョニング
-
 ```
 
 ---

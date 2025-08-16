@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>実績一覧 | My Portfolio</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>実績一覧</h1>
+      <nav>
+        <ul>
+          <li><a href="/index.html">ホーム</a></li>
+          <li><a href="/docs/about.html">プロフィール</a></li>
+          <li><a href="/docs/portfolio.html">実績一覧</a></li>
+          <li><a href="/docs/service.html">サービス</a></li>
+          <li><a href="/docs/contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <h2>プロジェクト一覧</h2>
+      <div class="portfolio-grid">
+        <a href="/projects/slack-bot" class="portfolio-card">
+          <h3>Slack通知Bot</h3>
+          <p>Lambda + API GatewayでSlack通知を自動化</p>
+        </a>
+        <a href="/projects/image-resize" class="portfolio-card">
+          <h3>画像リサイズLambda</h3>
+          <p>S3にアップされた画像をLambdaで自動リサイズ</p>
+        </a>
+        <a href="/projects/daily-batch" class="portfolio-card">
+          <h3>定期バッチ処理</h3>
+          <p>CloudWatch Eventsで毎日定時にLambda実行</p>
+        </a>
+        <a href="/projects/github-sync" class="portfolio-card">
+          <h3>GitHub連携ツール</h3>
+          <p>WebhookでGitHubイベントをLambdaで処理</p>
+        </a>
+        <a href="/projects/pdf-generator" class="portfolio-card">
+          <h3>PDF生成Lambda</h3>
+          <p>HTMLテンプレートからPDFを生成してS3保存</p>
+        </a>
+      </div>
+    </section>
+
+    <footer>&copy; 2025 My Portfolio. All rights reserved.</footer>
+  </body>
+</html>
