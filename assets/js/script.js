@@ -6,47 +6,52 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  button.addEventListener("click", async (event) => {
-    event.preventDefault();
-
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm");
+    const button = document.getElementById("submitButton");
     const responseMessage = document.getElementById("responseMessage");
 
-    if (!name || !email || !message) {
-      responseMessage.style.display = "block";
-      responseMessage.style.color = "red";
-      responseMessage.textContent = "すべての項目を入力してください。";
-      return;
-    }
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
 
-    button.disabled = true;
-    button.textContent = "送信中...";
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
 
-    try {
-      const response = await fetch("https://devJourney.fieldwork48.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
-      });
+      if (!name || !email || !message) {
+        responseMessage.style.display = "block";
+        responseMessage.style.color = "red";
+        responseMessage.textContent = "すべての項目を入力してください。";
+        return;
+      }
 
-      responseMessage.style.display = "block";
-      responseMessage.style.color = response.ok ? "green" : "red";
-      responseMessage.textContent = response.ok
-        ? "送信しました。ご連絡ありがとうございました。"
-        : "送信に失敗しました。";
-    } catch (error) {
-      console.error("送信エラー:", error);
-      responseMessage.style.display = "block";
-      responseMessage.style.color = "red";
-      responseMessage.textContent = "ネットワークエラーが発生しました。";
-    }
+      button.disabled = true;
+      button.textContent = "送信中...";
 
-    setTimeout(() => {
-      button.disabled = false;
-      button.textContent = "送信";
-    }, 2000);
+      try {
+        const response = await fetch("https://devJourney.fieldwork48.com", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, message }),
+        });
+
+        responseMessage.style.display = "block";
+        responseMessage.style.color = response.ok ? "green" : "red";
+        responseMessage.textContent = response.ok
+          ? "送信しました。ご連絡ありがとうございました。"
+          : "送信に失敗しました。";
+      } catch (error) {
+        console.error("送信エラー:", error);
+        responseMessage.style.display = "block";
+        responseMessage.style.color = "red";
+        responseMessage.textContent = "ネットワークエラーが発生しました。";
+      }
+
+      setTimeout(() => {
+        button.disabled = false;
+        button.textContent = "送信";
+      }, 2000);
+    });
   });
 });
 
