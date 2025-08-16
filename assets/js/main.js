@@ -3,21 +3,26 @@ import { sendFormData } from "/assets/js/sendFormData.js";
 import { updateUI } from "/assets/js/updateUI.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
   const button = document.getElementById("submitButton");
+  const responseMessage = document.getElementById("responseMessage");
 
-  if (!button) return;
+  let submitted = false;
 
-  button.addEventListener("click", async (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
+
+    if (submitted) return;
+    submitted = true;
 
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
-    const responseMessage = document.getElementById("responseMessage");
 
     const validationResult = validateInputs({ name, email, message });
     if (!validationResult.success) {
       updateUI(button, responseMessage, validationResult);
+      submitted = false; // バリデーション失敗時は再送信可能に
       return;
     }
 
