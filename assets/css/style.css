@@ -276,3 +276,34 @@ footer {
   outline: none;
   background: #fff;
 }
+
+/* カテゴリ見出しのスタイル */
+.category-title {
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  padding-left: 12px;
+  border-left: 6px solid #3498db;
+  color: #333;
+  background: linear-gradient(to right, #eaf6ff, #ffffff);
+  border-radius: 8px;
+}
+
+/* CI/CDセクション */
+.cicd-section {
+  background-color: #eaf6ff;
+  border-left: 4px solid #3498db;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(52, 152, 219, 0.1);
+}
+
+/* Lambdaセクション */
+.lambda-section {
+  background-color: #fff8e1;
+  border-left: 4px solid #f39c12;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(243, 156, 18, 0.1);
+}
