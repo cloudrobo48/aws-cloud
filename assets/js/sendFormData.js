@@ -1,6 +1,6 @@
 export async function sendFormData(payload) {
   try {
-    const response = await fetch("https://devJourney.fieldwork48.com/contact", {
+    const response = await fetch("https://dummy.url", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
