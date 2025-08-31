@@ -42,22 +42,36 @@
       >
         このフォームは、AWS環境にて以下の構成で実装されました。<br /><br />
         <strong>■ 技術構成:</strong><br />
-        ・API Gateway（REST）<br />
-        ・Lambda（Node.js）<br />
-        ・DynamoDB（非同期ログ保存）<br />
-        ・S3（静的ホスティング）<br /><br />
+        ・API Gateway（HTTP）<br />
+        ・Lambda（Python）<br />
+        ・SES（メール送信）<br />
 
         <strong>■ セキュリティ設計:</strong><br />
-        ・WAFによるIP制限とBot対策<br />
-        ・Lambdaオーソライザーによるトークン認証<br />
-        ・APIキーによるアクセス制御（ステージごとに分離）<br /><br />
+
+        1. Lambdaオーソライザー<br />
+        - 検討理由：ユーザー認証・認可をLambdaで柔軟に制御したかった<br />
+        -
+        課題：静的ホスティング環境ではユーザー情報（トークンなど）を保持・送信する仕組みがなく、**オーソライザーの意味が薄れる**<br />
+        - 結論：静的コンテンツとの相性が悪く、採用見送り<br />
+
+        2. APIキー<br />
+        - 検討理由：アクセス制限・使用量制限をかけたかった<br />
+        - 課題：HTTP APIではAPIキーの使用は可能だが、使用量プラン（Usage
+        Plan）が非対応<br />
+        - 結論：APIキーによる制限はREST APIでないと成立しないため、採用見送り<br />
+
+        3. AWS WAF<br />
+        - 検討理由：DDoS対策やIP制限など、セキュリティ強化のため<br />
+        - 課題：HTTP
+        APIはCloudFrontを経由しないため、WAFを直接アタッチできない<br />
+        -
+        結論：自前でCloudFront構成を組めば可能だが、運用コストが高く、今回は見送り<br />
 
         <strong>■ 判断と対応:</strong><br />
         ・フォーム送信機能は脆弱性リスクを考慮し、<span style="color: red"
           >API Gatewayを無効化</span
         ><br />
         ・Lambdaコードおよび構成図はポートフォリオとしてGitHubにて公開<br />
-        ・今後はTerraformによるIaC化も検討中<br /><br />
 
         技術的な検証と設計判断の記録として、本ページは公開を継続しています。
       </p>
