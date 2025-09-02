@@ -1,6 +1,6 @@
 export async function sendFormData(payload) {
   try {
-    const response = await fetch("https://dummy.url", {
+    const response = await fetch("https://dummy.url/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
