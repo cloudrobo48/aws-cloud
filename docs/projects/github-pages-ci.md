@@ -4,6 +4,8 @@ layout: default
 
 # Github PagesへのCI/CDパイプライン
 
+[← 前のページに戻る](/index.html)
+
 ## CI/CDパイプライン構成図
 
 ![CI/CDフロー]({{ site.baseurl }}/images/CICD-GithubPages.jpg)
