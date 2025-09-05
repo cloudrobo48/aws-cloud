@@ -4,7 +4,7 @@ layout: default
 
 # Github PagesへのCI/CDパイプライン
 
-[← 前のページに戻る](/index.html)
+[← 前のページに戻る](/docs/projects/aws-hands-on.html)
 
 ## CI/CDパイプライン構成図
 
