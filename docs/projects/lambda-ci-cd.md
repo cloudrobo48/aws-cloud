@@ -40,6 +40,14 @@ layout: default
 - 将来的なチーム開発を想定し、レビュー者・責任者の役割も図に反映予定
 - Secrets管理には GitHub の `Actions secrets` を使用し、AWSアクセスキー等の機密情報を安全に保持
 
+### Slack通知による運用補助（カスタム通知）
+
+GitHub Actionsのワークフロー内にSlack通知ステップを組み込み、CI/CDの実行結果をリアルタイムで受け取れるように設計しています。  
+SlackのIncoming Webhookを利用し、GitHub SecretsにWebhook URLを安全に登録。デプロイ成功時やCI失敗時など、任意のタイミングで通知を送信可能です。
+
+Slack通知は、開発者がGitHub上のアクション結果を即座に把握できるようにすることで、フィードバックループの高速化と運用効率の向上を実現しています。  
+将来的には、通知チャンネルの分離や、Slack Botによる承認フロー連携なども視野に入れています。
+
 ---
 
 > GitHub Actionsを活用したCI/CDの設計から、AWS Lambdaへの自動デプロイまでを一貫して構築。  

@@ -41,7 +41,7 @@ layout: default
 - 将来的なチーム開発も視野に入れ、レビューや責任分担を想定した設計を意識
 - GitHub AppによるSlack通知を活用し、Issue・Pull Request・Releaseなどのイベントを即時共有できる構成とした
 - CI/CDの進行状況や成果物の公開をリアルタイムで把握できるようにすることで、開発の透明性と反応速度を高める設計
-- GitHub Actionsによるカスタム通知（例：CI失敗時のSlack通知）については、今後の拡張項目として検討中
+- GitHub Actionsによるカスタム通知（例：CI失敗時のSlack通知）については、他CI/CDで実施
 
 ---
 
