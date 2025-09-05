@@ -1,4 +1,7 @@
-```markdown
+---
+layout: default
+---
+
 # GitHub Pages × API Gateway × Lambda 構成ポートフォリオ
 
 このプロジェクトは、GitHub Pages でホストされたフロントエンドから、AWS API Gateway（HTTP API）を通じて Lambda 関数を呼び出す構成です。すべての通信はカスタムドメインを使用し、HTTPS証明書は ACM によって管理されています。
@@ -89,6 +92,8 @@
 - CI/CDパイプラインの構築（GitHub Actions × AWS）
 - Lambdaの処理内容の拡張
 - API Gatewayのステージ管理とバージョニング
+
 ```
 
 ---
+```
