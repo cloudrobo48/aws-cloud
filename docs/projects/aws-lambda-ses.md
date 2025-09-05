@@ -92,6 +92,8 @@ layout: default
 - CI/CDパイプラインの構築（GitHub Actions × AWS）
 - Lambdaの処理内容の拡張
 - API Gatewayのステージ管理とバージョニング
+
 ```
 
 ---
+```
