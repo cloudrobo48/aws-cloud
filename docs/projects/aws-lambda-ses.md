@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# GitHub Pages × API Gateway × Lambda 構成ポートフォリオ
+# GitHub Pages × API Gateway × Lambda
 
 このプロジェクトは、GitHub Pages でホストされたフロントエンドから、AWS API Gateway（HTTP API）を通じて Lambda 関数を呼び出す構成です。すべての通信はカスタムドメインを使用し、HTTPS証明書は ACM によって管理されています。
 
@@ -19,6 +19,7 @@ layout: default
 | フロントエンド | GitHub Pages                | カスタムドメイン設定済み             |
 | バックエンド   | AWS API Gateway（HTTP API） | Lambda統合                           |
 | 実行処理       | AWS Lambda                  | IAMロールで権限管理                  |
+| ログ管理       | Amazon CloudWatch Logs      | Lambdaの実行ログを出力・監視         |
 | ドメイン管理   | Route53                     | CNAMEレコードでドメイン紐づけ        |
 | 証明書管理     | AWS ACM（ap-northeast-1）   | DNS検証で証明書発行                  |
 | 認証           | DNS検証（CNAME）            | ACMが提示するレコードをRoute53に登録 |
@@ -35,6 +36,7 @@ layout: default
 2. **Lambda関数作成**
    - 実行ロールを紐づけ
    - API Gatewayから呼び出す処理を実装
+   - CloudWatch Logsへの出力を有効化（`console.log()` などでログ記録）
 
 3. **Route53ホストゾーン確認**
    - `example.com` のホストゾーンが存在することを確認
