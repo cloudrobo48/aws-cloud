@@ -8,6 +8,10 @@ layout: default
 
 ---
 
+## Lambda構成図
+
+![Lambda構成]({{ site.baseurl }}/images/Lambda-SES_Structure.jpg)
+
 ## 🧩 使用技術・サービス
 
 | 種類           | サービス                    | 備考                                 |
@@ -57,7 +61,7 @@ layout: default
    - APIマッピング：HTTP APIとステージを紐づけ
 
 8. **Route53にCNAMEレコード登録（API Gateway用）**
-   - `api.example.com` → API Gatewayが提示するCloudFrontドメイン名をCNAMEで登録
+   - `api.example.com` → API Gatewayが提示する Regional ドメイン名をCNAMEで登録
 
 9. **GitHub PagesからFetch通信**
    - 例：`fetch("https://api.example.com/endpoint")`
@@ -69,9 +73,9 @@ layout: default
 
 - ACM証明書は `ap-northeast-1` で発行（HTTP APIに対応）
 - DNS検証は ACM → Route53 の順で登録
-- API Gatewayのカスタムドメインは CloudFront を内部的に使用
+- API GatewayのカスタムドメインはRegional エンドポイントで直接提供される
 - CORS設定は Lambda または API Gateway レベルで対応
-- CI/CD構成は別途まとめ予定
+- CI/CD構成は別途まとめています
 
 ---
 
