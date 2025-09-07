@@ -320,3 +320,16 @@ footer {
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(46, 204, 113, 0.1);
 }
+
+.container,
+.content {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
