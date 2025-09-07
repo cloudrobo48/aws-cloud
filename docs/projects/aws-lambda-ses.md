@@ -6,6 +6,8 @@ layout: default
 
 このプロジェクトは、GitHub Pages でホストされたフロントエンドから、AWS API Gateway（HTTP API）を通じて Lambda 関数を呼び出す構成です。すべての通信はカスタムドメインを使用し、HTTPS証明書は ACM によって管理されています。
 
+[← 前のページに戻る](/docs/aws-hands-on.html)
+
 ---
 
 ## Lambda構成図
