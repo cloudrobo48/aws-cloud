@@ -307,3 +307,16 @@ footer {
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(243, 156, 18, 0.1);
 }
+
+.terraform-title {
+  border-left-color: #2ecc71; /* Terraform: 緑系 */
+  background: linear-gradient(to right, #e8f8f5, #ffffff);
+}
+
+.terraform-section {
+  background-color: #e8f8f5;
+  border-left: 4px solid #2ecc71;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(46, 204, 113, 0.1);
+}

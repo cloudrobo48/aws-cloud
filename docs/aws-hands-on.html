@@ -29,6 +29,15 @@
     <section>
       <h2>技術検証・ハンズオン一覧</h2>
 
+      <!-- Lambdaカテゴリ -->
+      <h3 class="category-title lambda">⚡ Lambdaユースケース</h3>
+      <div class="portfolio-grid lambda-section">
+        <a href="/docs/projects/aws-lambda-ses" class="portfolio-card">
+          <h4>メール通知</h4>
+          <p>Github Pages → Lambda + API Gateway → SESでメール通知</p>
+        </a>
+      </div>
+
       <!-- CI/CDカテゴリ -->
       <h3 class="category-title cicd">🚀 CI/CDワークフロー</h3>
       <div class="portfolio-grid cicd-section">
@@ -42,29 +51,13 @@
         </a>
       </div>
 
-      <h3 class="category-title lambda">⚡ Lambdaユースケース</h3>
-      <div class="portfolio-grid lambda-section">
-        <!-- Lambdaカテゴリ -->
-        <a href="/docs/projects/aws-lambda-ses" class="portfolio-card">
-          <h4>（構築中）メール通知</h4>
-          <p>Github Pages → Lambda + API Gateway → SESでメール通知</p>
+      <h3 class="category-title terraform-title">📦 Terraform構成管理</h3>
+      <div class="portfolio-grid terraform-section">
+        <a href="/docs/projects/terraform-deploy" class="portfolio-card">
+          <h4>AWS構成のTerraform化</h4>
+          <p>Lambda/API Gateway/SES構成をTerraformで自動構築</p>
         </a>
-        <a href="/docs/projects/image-resize" class="portfolio-card">
-          <h4>（構築中）画像リサイズLambda</h4>
-          <p>S3にアップされた画像をLambdaで自動リサイズ</p>
-        </a>
-        <a href="/docs/projects/daily-batch" class="portfolio-card">
-          <h4>（構築中）定期バッチ処理</h4>
-          <p>CloudWatch Eventsで毎日定時にLambda実行</p>
-        </a>
-        <a href="/docs/projects/github-sync" class="portfolio-card">
-          <h4>（構築中）GitHub連携ツール</h4>
-          <p>WebhookでGitHubイベントをLambdaで処理</p>
-        </a>
-        <a href="/docs/projects/pdf-generator" class="portfolio-card">
-          <h4>（構築中）PDF生成Lambda</h4>
-          <p>HTMLテンプレートからPDFを生成してS3保存</p>
-        </a>
+        <!-- 今後追加予定のカードもここに並べられる -->
       </div>
     </section>
     <footer>
