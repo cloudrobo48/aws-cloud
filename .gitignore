@@ -5,3 +5,6 @@ dist/
 .DS_Store
 coverage/
 docs/work
+.zshrc
+.aws
+*.pem
