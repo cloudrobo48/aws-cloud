@@ -8,33 +8,37 @@ layout: default
 
 ## CI/CDパイプライン構成図
 
-![CI/CDフロー]({{ site.baseurl }}/images/CICD-Terraform.jpg)
+![CI/CDフロー]({{ site.baseurl }}/images/CICD-Terraform_SPA.jpg)
 
 ## CI/CDパイプライン概要説明（Terraform構成）
 
-本構成では、GitHub Actionsを用いたCI/CDパイプラインを構築し、Terraformによるインフラ構成を自動的に検証・デプロイする仕組みを実装しています。  
+この構成では、GitHub Actionsを用いたCI/CDパイプラインを構築し、Terraformによるインフラ構成を自動的に検証・反映する仕組みを実装しています。  
 個人開発環境での構築ですが、チーム開発を想定した設計と品質管理を意識しています。
 
 ### 主な構成要素
 
 - **CI（継続的インテグレーション）**
-  - `terraform fmt` によるコード整形チェック
+  - Pull Request作成時にGitHub Actionsが起動
+  - `terraform init` による初期化（Workspaceとstateの設定）
+  - `terraform fmt -check -recursive` によるコード整形チェック
   - `terraform validate` による構文検証
   - `tflint` による静的解析
-  - `terraform plan` による差分確認（PRコメントに投稿）
-  - GitHub Actionsによる自動検証処理
+  - `terraform plan` による差分確認
+  - `plan.txt` をPull Requestコメントに投稿し、レビュー担当者が差分を確認可能
 
 - **CD（継続的デリバリー）**
-  - `main`ブランチへのマージイベントをトリガーに、GitHub Actionsで `terraform apply` を自動実行
-  - デプロイにはGitHub Secretsを利用し、AWS認証情報を安全に管理
+  - Pull Requestを `main` ブランチにマージすると、GitHub Actionsが再度起動
+  - `terraform apply -auto-approve` により構成を反映
+  - Slack通知により、Apply結果をリアルタイムで共有
 
-### フロー概要
+### フロー概要（図に基づく）
 
-1. 開発者が `git commit` を実行すると、Terraformコードの整形・検証・静的解析がCIで実行される
-2. `git push` により GitHub 上で Pull Request が作成され、CI処理が開始
-3. `terraform plan` の結果をPRコメントに投稿し、レビュー担当者が差分を確認可能
-4. PRを `main` ブランチにマージすると、再度 GitHub Actions が起動し、 `terraform apply` による構成反映が実行される
-5. デプロイ結果は Slack 通知によりリアルタイムで共有される
+1. 開発者が `git add` → `git commit` → `git push` を実行し、Pull Requestを作成
+2. GitHub上でPull Requestイベントが発生し、CI処理が開始
+3. `.github/workflows/*.yml` に定義されたGitHub Actionsが起動し、Terraformの検証・Planを実行
+4. Plan結果をPRコメントに投稿し、レビュー担当者が差分を確認
+5. Pull Requestが `main` にマージされると、Apply処理が自動実行され、構成が反映される
+6. Slack通知により、CI/CDの結果が開発者に共有される
 
 ### 環境分離の仕組み
 
