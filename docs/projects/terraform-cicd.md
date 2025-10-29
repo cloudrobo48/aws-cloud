@@ -8,7 +8,7 @@ layout: default
 
 ## CI/CDパイプライン構成図
 
-![CI/CDフロー]({{ site.baseurl }}/images/CICD-Terraform.jpg)
+![CI/CDフロー]({{ site.baseurl }}/images/CICD-Terraform_SPA.jpg)
 
 ## CI/CDパイプライン概要説明（Terraform構成）
 
