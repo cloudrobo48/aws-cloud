@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPA案件に向けたAWS構成図 | My Portfolio</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>SPA案件に向けたAWS構成図</h1>
+      <nav>
+        <ul>
+          <li><a href="/index.html">ホーム</a></li>
+          <li><a href="/docs/about.html">プロフィール</a></li>
+          <li><a href="/docs/aws-hands-on.html">技術検証・ハンズオン</a></li>
+          <li>
+            <a href="/docs/spa-architecture.html">SPA案件に向けたAWS構成図</a>
+          </li>
+          <li>
+            <a
+              href="/docs/service.html"
+              style="pointer-events: none; color: gray"
+              >サービス内容（近日公開）</a
+            >
+          </li>
+          <li><a href="/docs/contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <h2>SPA案件に向けた構成設計</h2>
+      <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 40px">
+        この構成は、SPAプロジェクトにおける課題（配信・認証・API連携・運用管理）を一貫して解決できるよう設計されています。<br />
+        AWS未経験からの学習を経て、<strong>「語れる構成」から「任せられる構成」へ</strong>進化させた、ポートフォリオの集大成です。
+      </p>
+
+      <img
+        src="/images/spa-full-architecture.jpg"
+        alt="SPA構成図"
+        style="
+          border-radius: 12px;
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+          margin-bottom: 40px;
+        "
+      />
+
+      <div class="skills">
+        <ul>
+          <li>
+            <strong>SPA配信</strong>
+            S3 × CloudFront × Route53 × ACM
+            によるHTTPS対応・独自ドメイン・CDN配信
+          </li>
+          <li>
+            <strong>認証</strong>
+            Cognitoによるユーザ管理とトークン発行
+          </li>
+          <li>
+            <strong>API処理</strong>
+            API Gateway × Lambda によるバックエンド連携
+          </li>
+          <li>
+            <strong>データ保存</strong>
+            DynamoDBによるスケーラブルなデータストア
+          </li>
+          <li>
+            <strong>CI/CD</strong>
+            GitHub Actions による自動ビルド・デプロイ・Slack通知
+          </li>
+          <li>
+            <strong>構成管理</strong>
+            Terraform によるIaC化と環境分離
+          </li>
+        </ul>
+      </div>
+
+      <p style="margin-top: 40px; font-size: 0.95em; color: #666">
+        ※
+        この構成は、SPA案件における「配信・認証・API・運用」の全体像を一貫して設計・構築できることを示すためのアピールページです。<br />
+        今後は、承認フローやステージ管理の強化など、より実務に即した改善を継続していきます。
+      </p>
+    </section>
+
+    <footer>
+      <p>© 2025 クラウドインフラエンジニア | GitHub Pages</p>
+    </footer>
+  </body>
+</html>
