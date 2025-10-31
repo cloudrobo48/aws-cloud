@@ -39,14 +39,19 @@
       </p>
 
       <img
-        src="/images/spa-full-architecture.jpg"
-        alt="SPA構成図"
+        src="/images/spa-step1-architecture.jpg"
+        alt="SPA構成図（Step1）AWSインフラ構成：配信・認証・API連携を統合した設計"
         style="
           border-radius: 12px;
           box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
           margin-bottom: 40px;
         "
       />
+
+      <p style="font-size: 0.95em; color: #555; margin-bottom: 20px">
+        上図はSPA構成のStep1として、React × Amplify ×
+        AWSサービス群による配信・認証・API連携の流れを示しています。
+      </p>
 
       <p style="font-size: 1em; margin-bottom: 40px">
         この構成のTerraformによる詳細設計・IaC構成、 および GitHub Actions
@@ -88,6 +93,11 @@
             Terraform × GitHub Actions
             による構成のコード化と自動化、Slack通知による可視化
           </li>
+          <li>
+            <strong>セキュリティ設計</strong>
+            WAFによるCloudFront・API Gatewayの保護、Cognito ×
+            JWTによる認証・認可
+          </li>
         </ul>
       </div>
 
@@ -95,6 +105,12 @@
         ※
         この構成は、SPA案件における「配信・認証・API・運用」の全体像を一貫して設計・構築できることを示すためのアピールページです。<br />
         今後は、承認フローやステージ管理の強化に加え、CloudWatchなどの監視機能の導入やSLI/SLOの設計など、<strong>SRE的な運用改善</strong>にも取り組んでいきます。
+      </p>
+
+      <p style="margin-top: 20px; font-size: 0.95em; color: #666">
+        また、この構成はSPA構成の進化ステップにおける「ステップ1」に該当します。<br />
+        今後は、SSR（サーバーサイドレンダリング）やBFF（Backend for
+        Frontend）、PWA（プログレッシブWebアプリ）など、より高度なSPA構成への拡張も視野に入れています。
       </p>
     </section>
 
