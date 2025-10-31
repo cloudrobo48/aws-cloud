@@ -4,7 +4,9 @@ layout: default
 
 # Terraform × CloudFront × S3 × SPA構成
 
-このプロジェクトは、Terraformで構築された CloudFront × S3 による静的SPAホスティング構成です。セキュアなOAI連携、環境分離、CI/CD連携を前提にした“語れる構成”であり、将来的な拡張にも耐えるベース設計となっています。
+このプロジェクトは、Terraformで構築された CloudFront × S3 による静的SPAホスティング構成です。  
+SPA配信という明確な目的に対して、技術者視点で設計された“要件定義ベースの構成図”であり、セキュアなOAI連携、環境分離、CI/CD連携を前提にした“語れる構成”です。  
+将来的な拡張にも耐えるベース設計として、ポートフォリオの中核を担う構成となっています。
 
 [← 前のページに戻る](/docs/aws-hands-on.html)
 
@@ -14,15 +16,19 @@ layout: default
 
 ![Terraform概要]({{ site.baseurl }}/images/SPA_simple_Structure.jpg)
 
+---
+
 ## 🧠 構成コンセプト
 
-この構成は「語れる構成」から「任せられる構成」へ進化するためのベースです。小粒ながら、以下のような思想が込められています：
+この構成は「語れる構成」から「任せられる構成」へ進化するためのベースです。  
+小粒ながら、以下のような思想が込められています：
 
 - ✅ **再利用可能なモジュール設計**（SPA/LP案件に対応）
 - ✅ **CloudFront × OAIによるセキュアな配信**
 - ✅ **Terraform Workspaceによる環境分離**
 - ✅ **S3 + DynamoDBによる状態管理（Backend）**
 - ✅ **Dataリソースによる疎結合な情報取得**
+- ✅ **App Developerとの連携を前提とした構成設計**
 
 ---
 
@@ -30,7 +36,7 @@ layout: default
 
 | 種類           | サービス                   | 語れる観点                           |
 | -------------- | -------------------------- | ------------------------------------ |
-| フロントエンド | AWS S3（静的ホスティング） | index.html指定でSPA対応              |
+| フロントエンド | AWS S3（静的ホスティング） | Reactで構築されたSPAの配置           |
 | CDN配信        | AWS CloudFront             | OAIによる限定公開、HTTPS配信         |
 | 認証制御       | Origin Access Identity     | S3へのアクセスをCloudFront経由に限定 |
 | 状態管理       | S3 + DynamoDB              | terraform backendでロック付き管理    |
@@ -68,6 +74,13 @@ layout: default
 
 ---
 
+## 🤝 App Developerとの連携
+
+この構成は、Reactで構築されたSPAをS3に配置する流れを前提としています。  
+GitHubへのPush → PR → CI/CD → Terraform Apply という一連の流れが構成図に反映されており、アプリ開発者との連携を意識した設計となっています。
+
+---
+
 ## 📌 補足
 
 - CloudFrontはREGIONALエンドポイントでHTTPS配信
@@ -86,6 +99,7 @@ layout: default
 - セキュリティ設計（OAI, バケットポリシー, IAM）
 - SPA構成への理解と最適化
 - CI/CD連携を見据えた構成設計
+- アプリ開発者との連携を前提とした設計思想
 
 ---
 
