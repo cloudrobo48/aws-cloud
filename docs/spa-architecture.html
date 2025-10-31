@@ -31,9 +31,11 @@
 
     <section>
       <h2>SPA案件に向けた構成設計</h2>
+
       <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 40px">
         この構成は、SPAプロジェクトにおける課題（配信・認証・API連携・運用管理）を一貫して解決できるよう設計されています。<br />
-        AWS未経験からの学習を経て、<strong>「語れる構成」から「任せられる構成」へ</strong>進化させた、ポートフォリオの集大成です。
+        AWS未経験からの学習を経て、<strong>「語れる構成」から「任せられる構成」へ</strong>進化させた、ポートフォリオの集大成です。<br />
+        また、構成の再現性・自動化・運用性を重視した設計は、<strong>SRE的な視点</strong>にも通じています。
       </p>
 
       <img
@@ -73,13 +75,18 @@
             <strong>構成管理</strong>
             Terraform によるIaC化と環境分離
           </li>
+          <li>
+            <strong>運用性・信頼性</strong>
+            Terraform × GitHub Actions
+            による構成のコード化と自動化、Slack通知による可視化
+          </li>
         </ul>
       </div>
 
       <p style="margin-top: 40px; font-size: 0.95em; color: #666">
         ※
         この構成は、SPA案件における「配信・認証・API・運用」の全体像を一貫して設計・構築できることを示すためのアピールページです。<br />
-        今後は、承認フローやステージ管理の強化など、より実務に即した改善を継続していきます。
+        今後は、承認フローやステージ管理の強化に加え、CloudWatchなどの監視機能の導入やSLI/SLOの設計など、<strong>SRE的な運用改善</strong>にも取り組んでいきます。
       </p>
     </section>
 
