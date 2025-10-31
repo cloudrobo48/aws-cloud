@@ -12,7 +12,7 @@ layout: default
 
 ## Terraform構成図
 
-![Terraform概要]({{ site.baseurl }}/images/Terraform-SPA-small-Structure.jpg)
+![Terraform概要]({{ site.baseurl }}/images/SPA_simple_Structure.jpg)
 
 ## 🧠 構成コンセプト
 
