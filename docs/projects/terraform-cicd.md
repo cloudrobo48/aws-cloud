@@ -2,66 +2,77 @@
 layout: default
 ---
 
-# TerraformによるCI/CDパイプライン
+# TerraformによるCI/CDパイプライン構築例
 
 [← 前のページに戻る](/docs/aws-hands-on.html)
+
+## 概要
+
+このページでは、TerraformとGitHub Actionsを用いたCI/CDパイプラインの構築例を紹介します。  
+個人開発環境での実装ですが、**チーム開発・現場運用を前提とした設計・再現性・通知設計**までを意識して構成しています。  
+「この構成を導入すれば、現場でちゃんと回る」──そう思ってもらえることを目的にまとめています。
+
+---
+
+## ✅ アピールポイント
+
+- **語れる構成**：CI/CDの各ステップに明確な意図と設計理由があり、説明・教育・改善が可能
+- **再現性と運用性**：Applyログの保存・Slack通知・環境分離など、実運用に必要な仕組みを網羅
+- **チーム対応力**：PRラベルによる環境判定、Slack通知によるフィードバック設計など、複数人開発を前提とした構成
+- **安全性と信頼性**：OIDCによるAWS認証、Apply排他制御、Secrets管理など、セキュリティと安定性を両立
+
+---
 
 ## CI/CDパイプライン構成図
 
 ![CI/CDフロー]({{ site.baseurl }}/images/CICD-Terraform_SPA.jpg)
 
-## CI/CDパイプライン概要説明（Terraform構成）
+---
 
-この構成では、GitHub Actionsを用いたCI/CDパイプラインを構築し、Terraformによるインフラ構成を自動的に検証・反映する仕組みを実装しています。  
-個人開発環境での構築ですが、チーム開発を想定した設計と品質管理を意識しています。
+## CI/CDパイプライン詳細（Terraform構成）
 
-### 主な構成要素
+### CI（継続的インテグレーション）
 
-- **CI（継続的インテグレーション）**
-  - Pull Request作成時にGitHub Actionsが起動
-  - `terraform init` による初期化（Workspaceとstateの設定）
-  - `terraform fmt -check -recursive` によるコード整形チェック
-  - `terraform validate` による構文検証
-  - `tflint` による静的解析
-  - `terraform plan` による差分確認
-  - `plan.txt` をPull Requestコメントに投稿し、レビュー担当者が差分を確認可能
+- Pull Request作成時にGitHub Actionsが起動
+- `terraform init` による初期化（Workspaceとstateの設定）
+- `terraform fmt` / `validate` / `tflint` によるコード検証
+- `terraform plan` による差分確認
+- `plan.txt` をPull Requestコメントに自動投稿し、レビュー担当者が差分を確認可能
+- PRラベル（`env:dev` / `env:prod`）による環境判定を自動化
 
-- **CD（継続的デリバリー）**
-  - Pull Requestを `main` ブランチにマージすると、GitHub Actionsが再度起動
-  - `terraform apply -auto-approve` により構成を反映
-  - Slack通知により、Apply結果をリアルタイムで共有
+### CD（継続的デリバリー）
 
-### フロー概要（図に基づく）
-
-1. 開発者が `git add` → `git commit` → `git push` を実行し、Pull Requestを作成
-2. GitHub上でPull Requestイベントが発生し、CI処理が開始
-3. `.github/workflows/*.yml` に定義されたGitHub Actionsが起動し、Terraformの検証・Planを実行
-4. Plan結果をPRコメントに投稿し、レビュー担当者が差分を確認
-5. Pull Requestが `main` にマージされると、Apply処理が自動実行され、構成が反映される
-6. Slack通知により、CI/CDの結果が開発者に共有される
-
-### 環境分離の仕組み
-
-- Terraform Workspaceを使用して `dev` / `prod` 環境を分離
-- `tfvars` ファイルと `tfstate` の `key` を環境ごとに切り替え
-- 現在はPRベースで自動判定しているが、今後はラベル選択式に改善予定
-- Applyは `main` ブランチへのマージ後に自動実行されるが、今後は `workflow_dispatch` による選択式に移行予定
-
-### 補足
-
-- 現在は個人開発環境のため、すべての操作は自身が担当
-- 将来的なチーム開発を想定し、レビュー者・責任者の役割も図に反映予定
-- Secrets管理には GitHub の `Actions secrets` を使用し、AWSアクセスキー等の機密情報を安全に保持
-
-### Slack通知による運用補助（カスタム通知）
-
-GitHub Actionsのワークフロー内にSlack通知ステップを組み込み、CI/CDの実行結果をリアルタイムで受け取れるように設計しています。  
-SlackのIncoming Webhookを利用し、GitHub SecretsにWebhook URLを安全に登録。Plan結果やApply成功時など、任意のタイミングで通知を送信可能です。
-
-Slack通知は、開発者がGitHub上のアクション結果を即座に把握できるようにすることで、フィードバックループの高速化と運用効率の向上を実現しています。  
-将来的には、通知チャンネルの分離や、Slack Botによる承認フロー連携なども視野に入れています。
+- `workflow_dispatch` によるApply実行（環境選択式）
+- `terraform apply` のログを画面とファイルに同時出力（`tee`）
+- ApplyログをS3にアップロードし、Slack通知でURLを共有
+- Apply処理には `concurrency` による排他制御を導入し、同一環境での同時実行を防止
 
 ---
 
-> GitHub Actionsを活用したCI/CDの設計から、Terraformによるインフラ構成の自動反映までを一貫して構築。  
-> 実運用に近い形での品質管理と公開フローを実現しています。
+## 環境分離と安全設計
+
+- Terraform Workspaceにより `dev` / `prod` を分離
+- `.tfvars` と `tfstate` の `key` を環境ごとに切り替え
+- Applyログは環境別のS3バケットに保存し、Slack通知も環境別に展開
+- AWS認証はOIDCを使用し、GitHub ActionsからIAMロールをAssume（Secrets不要）
+
+---
+
+## Slack通知による運用補助
+
+- Apply成功時にSlack通知を送信し、S3ログのURLを共有
+- ログは誰でも閲覧可能なURLとして通知され、トラブルシュートやレビューに活用可能
+- 今後はSlack Botによる承認フロー連携や通知チャンネルの分離も視野に
+
+---
+
+## 補足
+
+- 現在は個人開発環境ですが、チーム開発・現場導入を前提とした設計思想で構築
+- 構成図・README・通知設計まで一貫して整備し、説明・教育・改善が可能な状態
+- 「語れる構成」「任せられる構成」として、現場導入・案件対応に活用できるレベルを目指しています
+
+---
+
+> Terraform × GitHub ActionsによるCI/CD構成を、運用・通知・安全性まで含めて一貫して設計。  
+> 「この人に任せれば、現場でちゃんと回る」──そう思ってもらえる構成を目指しました。
