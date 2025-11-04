@@ -103,4 +103,4 @@ layout: default
 
 ---
 
-🔗 GitHub Repository: [lambda-ses](https://github.com/cloudrobo48/docker-lambda-cd/)
+**🔗 この構成のGitHub Repositoryはこちら → [lambda-ses](https://github.com/cloudrobo48/docker-lambda-cd/)**

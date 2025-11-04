@@ -53,4 +53,6 @@ Slack通知は、開発者がGitHub上のアクション結果を即座に把握
 > GitHub Actionsを活用したCI/CDの設計から、AWS Lambdaへの自動デプロイまでを一貫して構築。  
 > 実運用に近い形での品質管理と公開フローを実現しています。
 
-🔗 GitHub Repository: [lambda-cicd](https://github.com/cloudrobo48/docker-lambda-cd/)
+---
+
+**🔗 この構成のGitHub Repositoryはこちら → [lambda-cicd](https://github.com/cloudrobo48/docker-lambda-cd/)**
