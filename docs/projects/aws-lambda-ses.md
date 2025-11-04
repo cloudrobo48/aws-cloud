@@ -101,7 +101,10 @@ layout: default
 - Lambdaの処理内容の拡張
 - API Gatewayのステージ管理とバージョニング
 
-```
 
 ---
-```
+
+
+🔗 GitHub Repository: [lambda-ses](https://github.com/cloudrobo48/docker-lambda-cd/)
+
+

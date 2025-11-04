@@ -76,3 +76,7 @@ layout: default
 
 > Terraform × GitHub ActionsによるCI/CD構成を、運用・通知・安全性まで含めて一貫して設計。  
 > 「この人に任せれば、現場でちゃんと回る」──そう思ってもらえる構成を目指しました。
+
+
+🔗 GitHub Repository: [terraform-cicd](https://github.com/cloudrobo48/spa)
+
