@@ -333,3 +333,11 @@ img {
   display: block;
   margin: 0 auto;
 }
+
+.portfolio-card {
+  cursor: pointer;
+}
+
+.portfolio-card:hover {
+  background-color: #f0f8ff; /* 淡い青で視覚的変化 */
+}
