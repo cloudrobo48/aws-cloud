@@ -42,7 +42,7 @@ SPA配信という明確な目的に対して、技術者視点で設計され�
 | 状態管理       | S3 + DynamoDB              | terraform backendでロック付き管理    |
 | 環境分離       | Terraform Workspace        | dev/stg/prodを一つのコードで運用     |
 | 情報取得       | Terraform Data             | AWS環境情報や既存リソースの参照      |
-| CI/CD連携      | GitHub Actions（予定）     | workspace連動で自動apply可能         |
+| CI/CD連携      | GitHub Actions             | workspace連動で自動apply可能         |
 
 ---
 
@@ -103,7 +103,7 @@ GitHubへのPush → PR → CI/CD → Terraform Apply という一連の流れ�
 
 ---
 
-## 🔗 今後の拡張予定
+## 🔗 拡張設計として以下を想定
 
 - GitHub ActionsによるCI/CDパイプライン構築
 - CloudFrontのキャッシュ制御・WAF連携
